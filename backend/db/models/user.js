@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // User.hasMany(models.Expense, {foreignKey: "userId"});
       User.hasMany(models.Trip, {foreignKey: "userId"});
       User.hasMany(models.Vehicle, {foreignKey: "userId"});
     }
@@ -48,9 +47,54 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     }
-  }, {
+  },
+  {
     sequelize,
     modelName: 'User',
+    defaultScope: {
+      attributes: {
+        exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt'],
+      },
+    },
+    scopes: {
+      currentUser: {
+        attributes: { exclude: ['hashedPassword'] },
+      },
+      loginUser: {
+        attributes: {},
+      },
+    }
   });
+
+  User.getCurrentUserById = async function (id) {
+    return await User.scope('currentUser').findByPk(id);
+  };
+
+  User.login = async function ({ credential, password }) {
+  const { Op } = require('sequelize');
+  const user = await User.scope('loginUser').findOne({
+    where: {
+      [Op.or]: {
+        username: credential,
+        email: credential,
+      },
+    },
+  });
+
+  User.signup = async function ({ username, email, password }) {
+    const hashedPassword = bcrypt.hashSync(password);
+    const user = await User.create({
+      username,
+      email,
+      hashedPassword,
+    });
+    return await User.scope('currentUser').findByPk(user.id);
+  };
+
+  if (user && user.validatePassword(password)) {
+     return await User.scope('currentUser').findByPk(user.id);
+    }
+  };
+
   return User;
 };

@@ -13,4 +13,13 @@ router.get('/', asyncHandler(async (req, res, next) => {
     })
 }));
 
+router.delete('/', asyncHandler(async (req, res, next) => {
+    const vehicle = await Vehicle.findByPk(req.body.vehicleId);
+
+    await vehicle.delete()
+    return res.json({
+        vehicle
+    })
+}))
+
 module.exports = router;
