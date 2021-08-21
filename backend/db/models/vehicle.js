@@ -10,16 +10,37 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Vehicle.hasMany(models.Expense, {foreignKey: "vehicleId"});
+      Vehicle.hasMany(models.Trip, {foreignKey: "vehicleId"});
+
+      Vehicle.belongsTo(models.User, {foreignKey: "userId"});
     }
   };
   Vehicle.init({
-    year: DataTypes.INTEGER,
-    make: DataTypes.STRING,
-    model: DataTypes.STRING,
-    startingMileage: DataTypes.INTEGER,
-    picturesUrl: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    year: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    make: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    model: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    startingMileage: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    picturesUrl: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Vehicle',
