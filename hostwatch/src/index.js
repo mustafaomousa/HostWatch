@@ -6,12 +6,16 @@ import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import configureStore from "./store";
+import { restoreCSRF, fetch } from './store/csrf';
 
 import './index.css';
 
 const store = configureStore();
 
 if (process.env.NODE_ENV !== 'production') {
+  restoreCSRF();
+
+  window.csrfFetch = fetch;
   window.store = store;
 }
 
