@@ -17,8 +17,10 @@ router.post('/', asyncHandler(async (req, res) => {
             hashedPassword,
             profilePicture
         });
+
+        await setTokenCookie(res, user);
     
-        return await User.scope('currentUser').findByPk(user.id);
+        return res.json({user})
     }),
   );
 

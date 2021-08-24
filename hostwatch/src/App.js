@@ -3,10 +3,11 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import * as sessionActions from "./store/session";
-import LogoutButton from "./components/LogoutComponent";
+import LogoutButton from "./components/LogoutComponent/LogoutButton";
 import LoginPage from "./components/LoginComponent";
 
 import "./app.css"
+import SignupPage from "./components/SignupComponent";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,9 @@ function App() {
       </Route>
       <Route path="/login">
         <LoginPage />
+      </Route>
+      <Route path="/signup">
+        <SignupPage />
       </Route>
     </Switch> 
   );

@@ -1,0 +1,11 @@
+.SignupPage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.SignupComponentContainer {
+    width: 700px;
+    height: 800px;
+    background-color: lightgray;
+}
