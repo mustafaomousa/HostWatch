@@ -1,6 +1,8 @@
-import { Box, Link, Stack, Text } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { Avatar, Box, Button, Center, Divider, Flex, Link, Menu, MenuButton, MenuGroup, MenuList, Stack, Text } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 import LogoutButton from "../LogoutComponent/LogoutButton";
+
+import * as sessionActions from "../../store/session";
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
     return (
@@ -13,6 +15,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 }
 
 const MenuLinks = ({isOpen}) => {
+    const dispatch = useDispatch();
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -37,7 +40,26 @@ const MenuLinks = ({isOpen}) => {
                 )}
                 {sessionUser && (
                     <>
-                        <LogoutButton />
+                        <MenuItem to="/">Vehicles</MenuItem>
+                        <MenuItem to="/">Trips</MenuItem>
+                        <MenuItem to="/">Earnings</MenuItem>
+                        <MenuItem to="/">Charts</MenuItem>
+                        <Menu>
+                            <MenuButton  colorScheme="blue">
+                                <Flex>
+                                    <Avatar src="" />
+                                </Flex>      
+                            </MenuButton>
+                            <MenuList>
+                                <MenuGroup align="center" title={sessionUser.email}>
+                                    <Divider />
+                                    <Box align="center" p="5px">
+                                        <MenuItem>Account</MenuItem>
+                                        <MenuItem onClick={(e) => dispatch(sessionActions.logout())}>Log out</MenuItem>    
+                                    </Box>
+                                </MenuGroup>
+                            </MenuList>
+                        </Menu>
                     </>
                 )}
             </Stack>

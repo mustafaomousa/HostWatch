@@ -9,7 +9,9 @@ const NavigationBarContainer = ({children, ...props}) => {
             wrap="wrap"
             w="100%"
             mb={8}
-            p={5}
+            pl={8}
+            pr={8}
+            minHeight="75px"
             bg={["lightgray"]}
             {...props}
             >
