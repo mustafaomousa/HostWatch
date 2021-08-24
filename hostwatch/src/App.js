@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import * as sessionActions from "./store/session";
+import LoginComponent from "./components/LoginComponent";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+  }, [dispatch])
+
+  return isLoaded && (
+    <Switch>
+      <Route exact path="/">
+        <h1>Home</h1>
+      </Route>
+      <Route path="/test">
+        <LoginComponent />
+      </Route>
+    </Switch> 
   );
 }
 

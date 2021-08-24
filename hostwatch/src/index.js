@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import configureStore from "./store";
 import { restoreCSRF, fetch } from './store/csrf';
-
-import './index.css';
 
 const store = configureStore();
 
@@ -23,7 +22,9 @@ const Root = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <ChakraProvider>
+          <App />  
+        </ChakraProvider>
       </BrowserRouter>
     </Provider>
   )

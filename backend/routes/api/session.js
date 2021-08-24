@@ -20,21 +20,9 @@ router.get('/', restoreUser, (req, res) => {
 
 router.post('/', asyncHandler(async (req, res, next) => {
     const { credential, password } = req.body;
-  
-    const { Op } = require('sequelize');
-    const user = await User.scope('loginUser').findOne({
-        where: {
-        [Op.or]: {
-            username: credential,
-            email: credential,
-        },
-        },
-    });
 
-    if (user && bcrypt.compareSync(password, user.hashedPassword.toString())) {
-        return await User.scope('currentUser').findByPk(user.id);
-    }
-  
+    const user = await User.login({credential, password})
+    console.log(user)
     if (!user) {
         const err = new Error('Login failed');
         err.status = 401;
@@ -45,7 +33,7 @@ router.post('/', asyncHandler(async (req, res, next) => {
   
     await setTokenCookie(res, user);
   
-    return res.json({user});
+    return res.json( {user });
 
     }),
 );
