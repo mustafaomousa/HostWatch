@@ -1,68 +1,15 @@
-import { Field, Form, Formik } from "formik";
-import {  FormControl, FormLabel, FormErrorMessage, Button, Input,  List, ListItem } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Box, Center } from "@chakra-ui/react";
+import LoginComponent from "./LoginComponent"
 
-import * as sessionActions from "../../store/session";
-import { validateUsername, validatePassword } from "./loginValidations";
-import { useState } from "react";
+import "./index.css";
 
-const LoginComponent = () => {
-    const dispatch = useDispatch();
-    
-    const [errors, setErrors] = useState([]);
-
-    const sessionUser = useSelector(state => state.session.user);
-
-    if (sessionUser) return (
-        <Redirect to="/" />
-    )
-
+const LoginPage = () => {
     return (
-        <Formik
-            initialValues={{ username: "", password: "" }}
-            onSubmit={(values, actions) => {
-                return dispatch(sessionActions.login({credential: values.username, password: values.password}))
-                    .catch((res) => {
-                        if (res.data && res.data.errors) {
-                            setErrors(res.data.errors)
-                        };
-                    })
-            }}
-        >
-            {(props) => (
-                <Form>
-                    <Field name="username" validate={validateUsername}>
-                        {({field, form}) => (
-                            <FormControl isInvalid={form.errors.username && form.touched.username}>
-                                <FormLabel htmlFor="username">username</FormLabel>
-                                <Input {...field} id="username" placeholder="username"/>
-                                <FormErrorMessage>{form.errors.username}</FormErrorMessage>
-                            </FormControl>
-                        )}
-                    </Field>
-                    <Field name="password" validate={validatePassword}>
-                        {({field, form}) => (
-                            <FormControl isInvalid={form.errors.password && form.touched.password}>
-                                <FormLabel htmlFor="password">password</FormLabel>
-                                <Input {...field}  type="password" id="password" placeholder="password"/>      
-                                <FormErrorMessage>{form.errors.password}</FormErrorMessage>
-                            </FormControl>
-                        )}
-                    </Field>
-                    <Button 
-                        type="submit"
-                        isLoading={props.isSubmitting}
-                    >
-                        submit
-                    </Button>
-                        <List>
-                            {errors && errors.map((err, idx) => <ListItem>{err}</ListItem>)}
-                        </List>
-                </Form>
-            )}
-        </Formik>
-    );
+        <Center className="LoginPage">
+            <h1>Login to continue</h1>
+            <LoginComponent className="LoginComponentContainer" />
+        </Center>
+    )
 };
 
-export default LoginComponent
+export default LoginPage;
