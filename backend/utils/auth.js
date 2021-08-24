@@ -6,7 +6,7 @@ const { secret, expiresIn } = jwtConfig;
 
 const setTokenCookie = (res, user) => {
     const token = jwt.sign(
-      { data: user.toSafeObject() },
+      { data: user },
       secret,
       { expiresIn: parseInt(expiresIn) },
     );

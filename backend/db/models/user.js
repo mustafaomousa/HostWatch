@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [3, 256],
         isEmail(value) {
-          if (Validator.isNotEmail(value)) {
+          if (!Validator.isEmail(value)) {
             throw new Error('Must be a valid email.')
           }
         }
@@ -58,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     scopes: {
       currentUser: {
-        attributes: { exclude: ['hashedPassword'] },
+        attributes: {  },
       },
       loginUser: {
         attributes: {},
@@ -68,32 +68,6 @@ module.exports = (sequelize, DataTypes) => {
 
   User.getCurrentUserById = async function (id) {
     return await User.scope('currentUser').findByPk(id);
-  };
-
-  User.login = async function ({ credential, password }) {
-  const { Op } = require('sequelize');
-  const user = await User.scope('loginUser').findOne({
-    where: {
-      [Op.or]: {
-        username: credential,
-        email: credential,
-      },
-    },
-  });
-
-  User.signup = async function ({ username, email, password }) {
-    const hashedPassword = bcrypt.hashSync(password);
-    const user = await User.create({
-      username,
-      email,
-      hashedPassword,
-    });
-    return await User.scope('currentUser').findByPk(user.id);
-  };
-
-  if (user && user.validatePassword(password)) {
-     return await User.scope('currentUser').findByPk(user.id);
-    }
   };
 
   return User;
