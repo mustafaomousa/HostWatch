@@ -2,7 +2,6 @@ import { Box, Center, Fade, Heading, Link, useDisclosure } from "@chakra-ui/reac
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import waveBackgroundVideo from "./Clean_Wave_Background.mp4"
 
 import "./index.css";
 
@@ -15,9 +14,6 @@ const HomePageComponent = () => {
 
     return (
         <Box pt={58} >
-            <video className="HomePageComponentBackground" autoPlay loop muted>
-                <source src={waveBackgroundVideo} type="video/mp4" />
-            </video>
             <Center flexDir="column" h="800px" className="HomePageComponentHeaderContainer">
                 <Fade in={isOpen}>
                     <Box>
@@ -30,9 +26,6 @@ const HomePageComponent = () => {
                     join today for <Link href="/signup" color="blue">free</Link>.
                 </Heading>)}
             </Center>
-            <Box className="HomePageComponentOne" backgroundColor="#81A4BB" h="500px" mt="-47px">
-
-            </Box>
         </Box>
     )
 };

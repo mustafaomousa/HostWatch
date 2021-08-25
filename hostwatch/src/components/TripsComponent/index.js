@@ -11,10 +11,7 @@ const TripsComponent = () => {
                 columns={3}
                 minChildWidth="400px"
                 align="center"
-                pt={120}
-                pb={10}
-                pl={10}
-                pr={10}>
+                pt={120}>
                 <Box>
                     <Center h="100%">
                         <Heading fontSize="55px" fontWeight="light">
