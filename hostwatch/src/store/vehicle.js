@@ -16,6 +16,13 @@ const newVehicle = (vehicle) => {
   };
 };
 
+const deleteVehicle = (vehicleId) => {
+  return {
+    type: "DELETE_VEHICLE",
+    payload: vehicleId
+  };
+};
+
 export const getHostVehicles = (id) => async (dispatch) => {
     const response = await fetch(`/api/vehicle/${id}`);
 
@@ -42,6 +49,16 @@ export const addHostVehicle = (year, make, model, startingMileage, picturesUrl, 
   return response;
 }
 
+export const deleteHostVehicle = (vehicleId) => async (dispatch) => {
+  const response = await fetch(`/api/vehicle/${vehicleId}`, {
+    method: "DELETE"
+  });
+
+  if (response.ok) dispatch(deleteVehicle(response.data));
+
+  return response
+};
+
 
 const vehicleReducer = (state = initialState, action) => {
   let newState;
@@ -54,6 +71,11 @@ const vehicleReducer = (state = initialState, action) => {
       let vehicleId = action.payload.vehicle.id
       newState = {...state};
       newState[vehicleId]= action.payload.vehicle;
+      return newState;
+    case "DELETE_VEHICLE":
+      newState = {...state};
+      console.log(action.payload)
+      delete newState[parseInt(action.payload)]
       return newState;
     default:
       return state;

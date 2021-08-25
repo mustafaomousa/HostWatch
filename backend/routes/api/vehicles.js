@@ -26,6 +26,13 @@ router.post("/", asyncHandler(async (req, res, next) => {
     return res.json(vehicle);
 }))
 
+router.delete("/:vehicleId", asyncHandler(async (req, res, next) => {
+    const { vehicleId } = req.params;
+    const vehicle = await Vehicle.findByPk(vehicleId);
+    await vehicle.destroy();
+    return res.json(vehicleId);
+}))
+
 router.delete('/', asyncHandler(async (req, res, next) => {
     const vehicle = await Vehicle.findByPk(req.body.vehicleId);
 
