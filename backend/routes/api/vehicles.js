@@ -13,6 +13,12 @@ router.get('/', asyncHandler(async (req, res, next) => {
     })
 }));
 
+router.get('/:userId', asyncHandler(async (req, res, next) => {
+    const { userId } = req.params
+    const vehicles = await Vehicle.findAll({where: {userId: userId}});
+    return res.json(vehicles);
+}))
+
 router.delete('/', asyncHandler(async (req, res, next) => {
     const vehicle = await Vehicle.findByPk(req.body.vehicleId);
 

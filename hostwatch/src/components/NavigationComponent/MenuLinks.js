@@ -1,6 +1,5 @@
-import { Avatar, Box, Button, Center, Divider, Flex, Link, Menu, MenuButton, MenuGroup, MenuList, Stack, Text } from "@chakra-ui/react";
+import { Avatar, Box, Divider, Flex, Link, Menu, MenuButton, MenuGroup, MenuList, Stack, Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import LogoutButton from "../LogoutComponent/LogoutButton";
 
 import * as sessionActions from "../../store/session";
 
@@ -40,7 +39,7 @@ const MenuLinks = ({isOpen}) => {
                 )}
                 {sessionUser && (
                     <>
-                        <MenuItem to="/">Vehicles</MenuItem>
+                        <MenuItem to="/vehicles">Vehicles</MenuItem>
                         <MenuItem to="/">Trips</MenuItem>
                         <MenuItem to="/">Earnings</MenuItem>
                         <MenuItem to="/">Charts</MenuItem>
