@@ -35,7 +35,6 @@ const VehiclesPage = () => {
 
     if (!sessionUser) return <Redirect to="/login" />
 
-
      return (
         <Grid
         templateRows="repeat(1, 1fr)"
@@ -68,11 +67,6 @@ const VehiclesPage = () => {
         
     )
 
-    // if (mobile) return (
-    //     <Box>
-    //         Mobile
-    //     </Box>
-    // )
 };
 
 export default VehiclesPage;

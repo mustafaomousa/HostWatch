@@ -8,8 +8,10 @@ import SignupPage from "./components/SignupComponent";
 import NavigationBar from "./components/NavigationComponent";
 import VehiclesPage from "./components/VehiclesComponent";
 import TripsComponent from "./components/TripsComponent";
+import HomePageComponent from "./components/HomePageComponent";
 
 import "./app.css"
+
 
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
       <NavigationBar />
       <Switch>
         <Route exact path="/">
-          <h1>Home</h1>
+          <HomePageComponent />
         </Route>
         <Route path="/login">
           <LoginPage />
