@@ -5,15 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import * as vehicleActions from "../../store/vehicle";
 
-const VehicleChart = () => {
+const VehicleChart = ({hostVehicles}) => {
     const dispatch = useDispatch();
-
-    const sessionUser = useSelector(state => state.session.user);
-    const hostVehicles = useSelector(state => state.vehicles);
-
-    useEffect(() => {
-        dispatch(vehicleActions.getHostVehicles(sessionUser.id))
-    },[])
 
     return (
         <Box p={10}>
