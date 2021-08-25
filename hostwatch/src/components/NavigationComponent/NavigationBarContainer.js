@@ -3,15 +3,15 @@ import { Flex } from "@chakra-ui/react"
 const NavigationBarContainer = ({children, ...props}) => {
     return (
         <Flex
+            position="fixed"
+            zIndex="100"
             as="nav"
             align="center"
             justify="space-between"
             wrap="wrap"
             w="100%"
-            mb={8}
-            pl={8}
-            pr={8}
-            minHeight="75px"
+            p={5}
+            minHeight="65px"
             bg={["lightgray"]}
             {...props}
             >

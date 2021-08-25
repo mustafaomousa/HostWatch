@@ -1,7 +1,7 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Box, Center, Grid, GridItem } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import AddVehicleComponent from "./AddVehicleComponent"
 import TuroStatsComponent from "./TuroStatsComponent";
@@ -15,24 +15,45 @@ const VehiclesPage = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const hostVehicles = useSelector(state => state.vehicles);
+    
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const breakpoint = 1400;
+    const mobile =  screenWidth < breakpoint;
+    const desktop = screenWidth > breakpoint;
 
     useEffect(() => {
         dispatch(vehicleActions.getHostVehicles(sessionUser.id))
     },[])
 
+    useEffect(() => {
+        let handleResize = () => {
+            setScreenWidth(window.innerWidth)
+            console.log(window.innerWidth)    
+        }
+        window.addEventListener('resize', handleResize)
+    });
+
     if (!sessionUser) return <Redirect to="/login" />
 
-    return (
+
+     return (
         <Grid
         templateRows="repeat(1, 1fr)"
         templateColumns="repeat(5, 1fr)"
         gap={5}
+        autoFlow
+        pt={120}
+        pl={10}
+        pr={10}
         >
             <GridItem rowSpan={2} colSpan={1} background="lightgray" borderTopLeftRadius="1em" borderBottomLeftRadius="1em">
                 <VehicleControlComponent hostVehicles={hostVehicles}/>
             </GridItem>
-            <GridItem colSpan={1} align="center" borderRadius="1em">
-                <Header />
+            <GridItem colSpan={1} borderRadius="1em">
+                <Center h="100%">
+                    <Header />    
+                </Center>
+                
             </GridItem>
             <GridItem colSpan={1} background="lightgray">
                 <TuroStatsComponent />
@@ -46,6 +67,12 @@ const VehiclesPage = () => {
         </Grid>
         
     )
+
+    // if (mobile) return (
+    //     <Box>
+    //         Mobile
+    //     </Box>
+    // )
 };
 
 export default VehiclesPage;

@@ -6,9 +6,11 @@ import * as sessionActions from "./store/session";
 import LoginPage from "./components/LoginComponent";
 import SignupPage from "./components/SignupComponent";
 import NavigationBar from "./components/NavigationComponent";
+import VehiclesPage from "./components/VehiclesComponent";
+import TripsComponent from "./components/TripsComponent";
 
 import "./app.css"
-import VehiclesPage from "./components/VehiclesComponent";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +35,9 @@ function App() {
         </Route>
         <Route path="/vehicles">
           <VehiclesPage />
+        </Route>
+        <Route path="/trips">
+          <TripsComponent />
         </Route>
       </Switch> 
     </>
