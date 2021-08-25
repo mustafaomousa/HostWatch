@@ -19,6 +19,13 @@ router.get('/:userId', asyncHandler(async (req, res, next) => {
     return res.json(vehicles);
 }))
 
+router.post("/", asyncHandler(async (req, res, next) => {
+    const { year, make, model, startingMileage, picturesUrl, userId} = req.body;
+    const vehicle = await Vehicle.build({year, make, model, startingMileage, picturesUrl, userId});
+    await vehicle.save();
+    return res.json(vehicle);
+}))
+
 router.delete('/', asyncHandler(async (req, res, next) => {
     const vehicle = await Vehicle.findByPk(req.body.vehicleId);
 

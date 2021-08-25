@@ -14,21 +14,22 @@ const VehicleChart = () => {
     useEffect(() => {
         dispatch(vehicleActions.getHostVehicles(sessionUser.id))
     },[])
+
     return (
-        <Box p={20}>
+        <Box>
             <Center>
                 <Heading>
                     your fleet.
                 </Heading>
             </Center>
-            <Table variant="simple">
+            <Table variant="simple" mt={8}>
                 <Thead>
                     <Tr>
                         <Th>year</Th>
                         <Th>make</Th>
                         <Th>model</Th>
-                        <Th>pictures</Th>
                         <Th>date added</Th>
+                        <Th>pictures</Th>
                         <Th></Th>
                     </Tr>
                 </Thead>
@@ -37,9 +38,9 @@ const VehicleChart = () => {
                         <Tr>
                             <Td>{hostVehicles[key].year}</Td>
                             <Td>{hostVehicles[key].make}</Td>
-                            <Td>{hostVehicles[key].model}</Td>
-                            <Td><Button><Icon as={ViewIcon} /></Button></Td>       
+                            <Td>{hostVehicles[key].model}</Td>      
                             <Td>{hostVehicles[key].createdAt.slice(0,10)}</Td>
+                            <Td><Button><Icon as={ViewIcon} /></Button></Td> 
                             <Td><Button><Icon as={EditIcon} /></Button></Td>       
                         </Tr>
                     ))}

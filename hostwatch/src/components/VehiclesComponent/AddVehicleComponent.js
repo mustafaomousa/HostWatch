@@ -1,10 +1,17 @@
 import { Box, Button, Center, Flex, FormControl, FormErrorMessage, FormLabel, Heading, Input } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+
+import * as vehicleActions from "../../store/vehicle";
 
 const AddVehicleComponent = () => {
+    const dispatch = useDispatch();
+
+    const sessionUser = useSelector(state => state.session.user);
+
     return (
-        <Flex direction="column">
-            <Center>
+        <Flex direction="column" >
+            <Center mb={8}>
                 <Heading>
                     add a vehicle to your fleet.
                 </Heading>
@@ -12,7 +19,12 @@ const AddVehicleComponent = () => {
             <Formik
                 initialValues={{ year: 2021 }}
                 onSubmit={(values, actions) => {
-                    
+                    return dispatch(vehicleActions.addHostVehicle(values.year, values.make, values.model, values.startingMileage, "www.google.com", sessionUser.id))
+                        .catch((res) => {
+                            if (res.data && res.data.errors) {
+                                // setErrors(res.data.errors);
+                            }
+                        })
                 }}
             >
                 {(props) => (
