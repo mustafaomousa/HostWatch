@@ -16,9 +16,9 @@ const VehicleChart = () => {
     },[])
 
     return (
-        <Box>
+        <Box p={10}>
             <Center>
-                <Heading>
+                <Heading size="md">
                     your fleet.
                 </Heading>
             </Center>

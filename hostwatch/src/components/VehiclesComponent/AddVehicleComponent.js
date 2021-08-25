@@ -10,9 +10,9 @@ const AddVehicleComponent = () => {
     const sessionUser = useSelector(state => state.session.user);
 
     return (
-        <Flex direction="column" >
+        <Flex direction="column" p={10}>
             <Center mb={8}>
-                <Heading>
+                <Heading size="md">
                     add a vehicle to your fleet.
                 </Heading>
             </Center>
