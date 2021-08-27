@@ -26,32 +26,13 @@ const VehiclesPage = () => {
     if (!sessionUser) return <Redirect to="/login" />
 
      return (
-        <Grid
-        templateRows="repeat(1, 1fr)"
-        templateColumns="repeat(5, 1fr)"
-        gap={5}
-        autoFlow
-        p={10}
-        >
-            <GridItem rowSpan={2} colSpan={1} background="lightgray" borderTopLeftRadius="1em" borderBottomLeftRadius="1em">
-                <VehicleControlComponent hostVehicles={hostVehicles}/>
-            </GridItem>
-            <GridItem colSpan={1} borderRadius="1em">
-                <Center h="100%">
-                    <Header />    
-                </Center>
-                
-            </GridItem>
-            <GridItem colSpan={1} background="lightgray">
-                <TuroStatsComponent />
-            </GridItem>
-            <GridItem colSpan={2} background="lightgray" borderTopRightRadius="1em">
-                <AddVehicleComponent />    
-            </GridItem>
-            <GridItem colSpan={4} background="lightgray" borderBottomRightRadius="1em">
-                <VehicleChart hostVehicles={hostVehicles}/>    
-            </GridItem>
-        </Grid>
+        <Box>    
+            <Header />
+            <VehicleControlComponent hostVehicles={hostVehicles}/>    
+            <TuroStatsComponent />
+            <AddVehicleComponent />    
+            <VehicleChart hostVehicles={hostVehicles}/>    
+        </Box>
         
     )
 

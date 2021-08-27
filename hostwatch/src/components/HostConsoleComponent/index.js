@@ -10,7 +10,7 @@ const HostConsoleComponent = () => {
 
     return (
         <Flex style={{height: "100%"}}>
-            <Box style={{minWidth: "16rem", backgroundColor: "orange"}}>
+            <Box style={{minWidth: "16rem", height: "100%", backgroundColor: "orange"}}>
                 <Box style={{display: "flex", flexDirection: "column", height: "100%", padding: "1rem"}}>
                     <Button style={{width:"100%", height: "65px", padding: "1rem"}}>
                         <Image borderRadius="full" boxSize="50px" src={sessionUser.profilePicture} />
@@ -69,8 +69,8 @@ const HostConsoleComponent = () => {
                     </VStack>
                 </Box>
             </Box>
-            <Box style={{padding: "1rem"}}>
-                <Box>
+            <Box style={{padding: "1rem", width: "100%"}} backgroundColor="lightgray">
+                <Box height="100%" width="100%">
                     <Route path="/host/vehicles">
                         <VehiclesPage />
                     </Route>
