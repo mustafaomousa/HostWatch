@@ -39,10 +39,11 @@ const MenuLinks = ({isOpen}) => {
                 )}
                 {sessionUser && (
                     <>
-                        <MenuItem to="/vehicles">Vehicles</MenuItem>
+                        <MenuItem to="/host">Host Console</MenuItem>
+                        {/* <MenuItem to="/vehicles">Vehicles</MenuItem>
                         <MenuItem to="/trips">Trips</MenuItem>
                         <MenuItem to="/">Earnings</MenuItem>
-                        <MenuItem to="/">Charts</MenuItem>
+                        <MenuItem to="/">Charts</MenuItem> */}
                         <Menu>
                             <MenuButton  colorScheme="blue">
                                 <Flex>

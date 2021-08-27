@@ -18,20 +18,10 @@ const VehiclesPage = () => {
     
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const breakpoint = 1400;
-    const mobile =  screenWidth < breakpoint;
-    const desktop = screenWidth > breakpoint;
 
     useEffect(() => {
         dispatch(vehicleActions.getHostVehicles(sessionUser.id))
     },[])
-
-    useEffect(() => {
-        let handleResize = () => {
-            setScreenWidth(window.innerWidth)
-            console.log(window.innerWidth)    
-        }
-        window.addEventListener('resize', handleResize)
-    });
 
     if (!sessionUser) return <Redirect to="/login" />
 
@@ -41,9 +31,7 @@ const VehiclesPage = () => {
         templateColumns="repeat(5, 1fr)"
         gap={5}
         autoFlow
-        pt={120}
-        pl={10}
-        pr={10}
+        p={10}
         >
             <GridItem rowSpan={2} colSpan={1} background="lightgray" borderTopLeftRadius="1em" borderBottomLeftRadius="1em">
                 <VehicleControlComponent hostVehicles={hostVehicles}/>

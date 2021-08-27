@@ -13,8 +13,8 @@ const HomePageComponent = () => {
     useEffect(()=> onToggle(),[sessionUser])
 
     return (
-        <Box pt={58} >
-            <Center flexDir="column" h="800px" className="HomePageComponentHeaderContainer">
+        <Box>
+            <Center flexDir="column" h="800px">
                 <Fade in={isOpen}>
                     <Box>
                         <Heading fontSize="65px">
@@ -22,7 +22,8 @@ const HomePageComponent = () => {
                         </Heading>
                     </Box>    
                 </Fade>
-                {!sessionUser && (<Heading size="sm">
+                {!sessionUser && (
+                <Heading size="sm">
                     join today for <Link href="/signup" color="blue">free</Link>.
                 </Heading>)}
             </Center>

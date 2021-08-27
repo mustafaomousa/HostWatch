@@ -3,7 +3,6 @@ import { Flex } from "@chakra-ui/react"
 const NavigationBarContainer = ({children, ...props}) => {
     return (
         <Flex
-            position="fixed"
             zIndex="100"
             as="nav"
             align="center"

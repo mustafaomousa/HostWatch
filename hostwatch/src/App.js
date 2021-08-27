@@ -11,6 +11,8 @@ import TripsComponent from "./components/TripsComponent";
 import HomePageComponent from "./components/HomePageComponent";
 
 import "./app.css"
+import HostConsoleComponent from "./components/HostConsoleComponent";
+import { Box } from "@chakra-ui/react";
 
 
 
@@ -24,23 +26,23 @@ function App() {
 
   return isLoaded && (
     <>
-      <NavigationBar />
+      
       <Switch>
-        <Route exact path="/">
-          <HomePageComponent />
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/signup">
-          <SignupPage />
-        </Route>
-        <Route path="/vehicles">
-          <VehiclesPage />
-        </Route>
-        <Route path="/trips">
-          <TripsComponent />
-        </Route>
+          <Route exact path="/">
+            <NavigationBar />
+            <HomePageComponent />
+          </Route>
+          <Route path="/login">
+            <NavigationBar />
+            <LoginPage />
+          </Route>
+          <Route path="/signup">
+            <NavigationBar />
+            <SignupPage />
+          </Route>
+          <Route path="/host">
+            <HostConsoleComponent />
+          </Route>  
       </Switch> 
     </>
   );

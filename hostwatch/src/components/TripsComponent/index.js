@@ -8,10 +8,14 @@ const TripsComponent = () => {
         <Box>
             <SimpleGrid
                 spacing="40px"
-                columns={3}
+                columns="1fr 1fr 1fr"
                 minChildWidth="400px"
-                align="center"
-                pt={120}>
+                align="center">
+                <Box p={10} h="500px" backgroundColor="lightslategray">
+                    <Heading size="md">
+                        add a past/upcoming trip.
+                    </Heading>
+                </Box>
                 <Box>
                     <Center h="100%">
                         <Heading fontSize="55px" fontWeight="light">
