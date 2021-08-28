@@ -1,7 +1,8 @@
-import { Box, Center, Divider, Heading, SimpleGrid } from "@chakra-ui/react"
-import TripCalendar from "./TripCalendar"
+import { Box, Divider, Heading } from "@chakra-ui/react"
 
 import "./index.css";
+import AddTrip from "./AddTrip";
+import TripChart from "./TripChart";
 
 const TripsComponent = () => {
     return (
@@ -10,6 +11,9 @@ const TripsComponent = () => {
                 your trips.
             </Heading>
             <Divider />
+            <AddTrip />
+            <Divider />
+            <TripChart />
         </Box>
         
     )
