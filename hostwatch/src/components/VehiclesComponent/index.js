@@ -1,4 +1,4 @@
-import { Box, Center, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Center, Divider, Grid, GridItem, Heading, MenuDivider, StackDivider } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -8,7 +8,6 @@ import TuroStatsComponent from "./TuroStatsComponent";
 import VehicleChart from "./VehicleChart"
 import VehicleControlComponent from "./VehicleControlComponent";
 import * as vehicleActions from "../../store/vehicle";
-import Header from "./Header";
 
 
 const VehiclesPage = () => {
@@ -27,10 +26,16 @@ const VehiclesPage = () => {
 
      return (
         <Box>    
-            <Header />
-            <VehicleControlComponent hostVehicles={hostVehicles}/>    
+            <Heading size="lg" fontSize="55px" fontWeight="light" pb={10}>
+                your fleet.
+            </Heading>
+            <Divider />
+            <VehicleControlComponent hostVehicles={hostVehicles}/>
+            <Divider />  
             <TuroStatsComponent />
-            <AddVehicleComponent />    
+            <Divider />
+            <AddVehicleComponent />
+            <Divider />
             <VehicleChart hostVehicles={hostVehicles}/>    
         </Box>
         

@@ -6,9 +6,10 @@ import "./index.css";
 const TripsComponent = () => {
     return (
         <Box style={{height: "100%", width: "100%"}}>
-            <Heading fontSize="55px" fontWeight="light">
+            <Heading fontSize="55px" fontWeight="light" pb={10}>
                 your trips.
-            </Heading>    
+            </Heading>
+            <Divider />
         </Box>
         
     )

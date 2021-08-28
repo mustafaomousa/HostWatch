@@ -3,24 +3,19 @@ import { EditIcon, ViewIcon } from "@chakra-ui/icons";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import * as vehicleActions from "../../store/vehicle";
 import EditVehicleComponent from "./EditVehicleComponent";
 
 const VehicleChart = ({hostVehicles}) => {
-    const dispatch = useDispatch();
-
     const vehicleToEdit = React.useRef();
 
     const {isOpen, onOpen, onClose } = useDisclosure();
 
     return (
-        <Box p={10}>
-            <Center>
-                <Heading size="md">
-                    your fleet.
-                </Heading>
-            </Center>
-            <Table variant="simple" mt={8}>
+        <Box p={20}>
+            <Heading size="md" style={{textDecoration:"underline"}}>
+                your fleet.
+            </Heading>
+            <Table variant="striped" mt={8}>
                 <Thead>
                     <Tr>
                         <Th>year</Th>

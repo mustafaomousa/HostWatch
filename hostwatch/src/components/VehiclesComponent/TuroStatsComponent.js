@@ -1,13 +1,16 @@
-import { Box, Heading, Stat, StatArrow, StatGroup, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/react";
+import { Box, Center, Heading, Image, Stat, StatArrow, StatGroup, StatHelpText, StatLabel, StatNumber, StylesProvider } from "@chakra-ui/react";
 
 const TuroStatsComponent = () => {
     return (
-        <Box>
-            <Heading align="center" size="md" pt={10}>
+        <Box p={20}>
+            <Heading align="flex-start" size="md" style={{textDecoration:"underline"}}>
                 turo stats.
             </Heading>
-            <StatGroup flex flexDirection="column" alignContent="center" width="100%" p={10}>
-                <Stat p={0}>
+            <Center height="250px">
+                coming soon
+            </Center>
+            {/* <StatGroup flex flexDirection="row" justifyContent="center" width="100%" p={10} flexWrap="wrap" >
+                <Stat align="center">
                     <StatLabel>trips.</StatLabel>
                     <StatNumber>37</StatNumber>
                     <StatHelpText>
@@ -15,7 +18,7 @@ const TuroStatsComponent = () => {
                         5 more than last month.
                     </StatHelpText>
                 </Stat>
-                <Stat pt={10}>
+                <Stat align="center">
                     <StatLabel>earnings to date.</StatLabel>
                     <StatNumber>$8300</StatNumber>
                     <StatHelpText>
@@ -23,14 +26,14 @@ const TuroStatsComponent = () => {
                         $2305 more than last month.
                     </StatHelpText>
                 </Stat>
-                <Stat pt={10}>
+                <Stat align="center">
                     <StatLabel>upcoming earnings.</StatLabel>
                     <StatNumber>$2300</StatNumber>
                     <StatHelpText>
                         to the end of the current month.
                     </StatHelpText>
                 </Stat>
-            </StatGroup>
+            </StatGroup> */}
         </Box>
     )
 };
