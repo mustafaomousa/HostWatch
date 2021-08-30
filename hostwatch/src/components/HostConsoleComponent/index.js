@@ -1,24 +1,40 @@
-import { ArrowBackIcon, Icon } from "@chakra-ui/icons";
-import { Box, Button, Center, Container, Divider, Flex, Grid, GridItem, Heading, Image, SimpleGrid, VStack, Wrap, WrapItem, Link } from "@chakra-ui/react"
+import { Box, Flex } from "@chakra-ui/react"
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect, Route, Switch, useHistory } from "react-router-dom"
+import { Redirect, Route } from "react-router-dom"
+
 import TripsComponent from "../TripsComponent"
 import VehiclesPage from "../VehiclesComponent"
-import * as sessionActions from "../../store/session";
-import LogoutButton from "../LogoutComponent/LogoutButton";
+import Host from "./Host";
 import SideNavigation from "./SideNavigation";
+import * as vehicleActions from "../../store/vehicle";
+
+import "./index.css";
 
 const HostConsoleComponent = () => {
+    const dispatch = useDispatch();
+
     const sessionUser = useSelector(state => state.session.user);
+    const hostVehicles = useSelector(state => state.vehicles)
+
+    const todaysDate = Date().toLocaleString().slice(0,10);
+
+    useEffect(() => {
+        dispatch(vehicleActions.getHostVehicles(sessionUser.id))
+    },[])
 
     if (!sessionUser) return <Redirect to="/" />
+
 
     return (
         <Flex>
             <SideNavigation />
             <Box style={{ width: "100%", marginLeft:"16rem"}} p={12} backgroundColor="lightgray">
+                <Route exact path="/host">
+                    <Host sessionUser={sessionUser} hostVehicles={hostVehicles} todaysDate={todaysDate} />
+                </Route>
                 <Route path="/host/vehicles">
-                    <VehiclesPage />
+                    <VehiclesPage hostVehicles={hostVehicles} sessionUser={sessionUser}/>
                 </Route>
                 <Route path="/host/trips">
                     <TripsComponent />

@@ -1,0 +1,8 @@
+.VehicleControlTile {
+    text-align: center;
+    background-color: darkgray;
+    border-radius: 0.75em;
+    width: 250px;
+    padding: 10px;
+    margin: 10px;
+}

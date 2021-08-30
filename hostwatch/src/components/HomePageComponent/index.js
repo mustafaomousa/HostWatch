@@ -1,16 +1,11 @@
-import { Box, Center, Fade, Heading, Link, useDisclosure } from "@chakra-ui/react";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { Box, Center, Fade, Heading, Link } from "@chakra-ui/react";
 
+import FadeEffect from "./FadeEffect";
 
 import "./index.css";
 
-const HomePageComponent = () => {
-    const { isOpen, onToggle } = useDisclosure();
-
-    const sessionUser = useSelector(state => state.session.user);
-
-    useEffect(()=> onToggle(),[sessionUser])
+const HomePageComponent = ({sessionUser}) => {
+    const { isOpen } = FadeEffect();
 
     return (
         <Box>

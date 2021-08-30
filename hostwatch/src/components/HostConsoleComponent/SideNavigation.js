@@ -1,23 +1,18 @@
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import { Box, Button, Container, Divider, Heading, Image, VStack, Link } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { Box, Button, Container, Divider, Heading, VStack, Link } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
 import LogoutButton from "../LogoutComponent/LogoutButton";
 
 const SideNavigation = () => {
-    const sessionUser = useSelector(state => state.session.user);
 
     return (
         <Box style={{minWidth: "16rem", height: "100%", position:"fixed", backgroundColor: "orange"}}>
                 <Box style={{display: "flex", flexDirection: "column", height: "100%", padding: "1rem"}}>
-                    <Button style={{width:"100%", height: "65px", padding: "1rem"}}>
-                        <Image borderRadius="full" boxSize="50px" src={sessionUser.profilePicture} />
-                        <Container overflow="hidden">
+                    <Button as={NavLink} to="/host" style={{width:"100%", height: "65px", padding: "1rem"}}>
                             <Heading size="md">
-                                {sessionUser.username}
+                                Host Console
                             </Heading>
-                        </Container>
                     </Button>
                     <Divider paddingTop="3rem"/>
                     <VStack style={{width: "100%", paddingTop:"3rem", paddingBottom: "3rem"}} spacing={3}>
