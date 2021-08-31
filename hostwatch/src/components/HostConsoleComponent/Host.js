@@ -1,4 +1,5 @@
-import { Badge, Box, Center, Divider, Heading } from "@chakra-ui/react"
+import { Badge, Box, Center, Divider, GridItem, Heading, SimpleGrid } from "@chakra-ui/react"
+import { useState } from "react";
 
 import VehicleControlComponent from "./VehicleControlComponent";
 
@@ -6,23 +7,27 @@ const Host = ({sessionUser, hostVehicles, todaysDate}) => {
 
     return (
         <Box>
-            <Center style={{width:"100%"}}>
-                <Center style={{width:"80%", backgroundColor:"darkgray", borderRadius:".75em"}} p={10}>
-                    <Heading>Hello, {sessionUser.username}!</Heading>
-                </Center>
-            </Center>
-            <Heading pt={20} size="2xl">
-                {todaysDate} <Badge colorScheme="red">on 2 trips</Badge>
-            </Heading>
-            <Divider p={10}/>
             <VehicleControlComponent hostVehicles={hostVehicles}/>
-            <Divider pb={10} />
-            <Heading pt={20} size="2xl">
+            <Divider />
+            <Heading pt={20} size="md" style={{textDecoration:"underline"}}>
                 Quick stats
             </Heading>
-            <Box h={400}>
+            <Center>
+                <SimpleGrid columns={2}>
+                    <GridItem>
+                        <Box backgroundColor="#374785" h={450} w={600} m={20} borderRadius="0.55em" style={{boxShadow: "rgba(0, 0, 0, 0.45) 0px 10px 20px -10px"}}>
 
-            </Box>
+                        </Box>
+                    </GridItem>
+                    <GridItem>
+                        <Box backgroundColor="#374785" h={450} w={600} m={20} borderRadius="0.55em" style={{boxShadow: "rgba(0, 0, 0, 0.45) 0px 10px 20px -10px"}}>
+
+                        </Box>
+                    </GridItem>
+                </SimpleGrid>       
+                
+                
+            </Center>
         </Box>
     )
 };

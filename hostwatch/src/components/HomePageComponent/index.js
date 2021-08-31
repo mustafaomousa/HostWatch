@@ -1,26 +1,40 @@
-import { Box, Center, Fade, Heading, Link } from "@chakra-ui/react";
-
-import FadeEffect from "./FadeEffect";
+import { Box, Center, GridItem, Heading, Link, SimpleGrid } from "@chakra-ui/react";
 
 import "./index.css";
 
 const HomePageComponent = ({sessionUser}) => {
-    const { isOpen } = FadeEffect();
 
     return (
         <Box>
-            <Center flexDir="column" h="800px">
-                <Fade in={isOpen}>
-                    <Box>
-                        <Heading fontSize="65px">
-                            car share management for your business.
-                        </Heading>
-                    </Box>    
-                </Fade>
+            <Center flexDir="column" h="500px">
+                <Box>
+                    <Heading fontSize="65px">
+                        car share management for your business.
+                    </Heading>
+                </Box>    
                 {!sessionUser && (
                 <Heading size="sm">
                     join today for <Link href="/signup" color="blue">free</Link>.
                 </Heading>)}
+            </Center>
+            <Center>
+                <SimpleGrid columns={3} spacing={10}>
+                    <GridItem>
+                        <Box backgroundColor="#F8E9A1" height={400} width={300} borderRadius="0.75em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
+
+                        </Box>
+                    </GridItem>
+                    <GridItem>
+                        <Box backgroundColor="#F8E9A1" height={450} borderRadius="0.75em" style={{boxShadow:"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"}}>
+                            
+                        </Box>
+                    </GridItem>
+                    <GridItem>
+                        <Box backgroundColor="#F8E9A1" height={400} width={300} borderRadius="0.75em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
+
+                        </Box>  
+                    </GridItem>
+                </SimpleGrid>
             </Center>
         </Box>
     )

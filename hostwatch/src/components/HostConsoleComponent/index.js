@@ -1,5 +1,6 @@
-import { Box, Flex } from "@chakra-ui/react"
-import { useEffect } from "react";
+import { Badge, Box, Button, Center, Flex, Heading } from "@chakra-ui/react"
+import { CloseIcon, ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route } from "react-router-dom"
 
@@ -13,6 +14,8 @@ import "./index.css";
 
 const HostConsoleComponent = () => {
     const dispatch = useDispatch();
+
+    const [sideClosed, setSideClosed] = useState(false);
 
     const sessionUser = useSelector(state => state.session.user);
     const hostVehicles = useSelector(state => state.vehicles)
@@ -28,23 +31,31 @@ const HostConsoleComponent = () => {
 
     return (
         <Flex>
-            <SideNavigation />
-            <Box style={{ width: "100%", marginLeft:"16rem"}} p={12} backgroundColor="lightgray">
-                <Route exact path="/host">
-                    <Host sessionUser={sessionUser} hostVehicles={hostVehicles} todaysDate={todaysDate} />
-                </Route>
-                <Route path="/host/vehicles">
-                    <VehiclesPage hostVehicles={hostVehicles} sessionUser={sessionUser}/>
-                </Route>
-                <Route path="/host/trips">
-                    <TripsComponent />
-                </Route>
-                <Route path="/host/earnings">
+            <SideNavigation sideClosed={sideClosed} />
+            <Button onClick={() => setSideClosed(!sideClosed)} style={{display: "fixed", left: sideClosed ? "0px" : "260px"}}>
+                {sideClosed ? <ArrowRightIcon/> : <ArrowLeftIcon />}
+            </Button>
+            <Box style={{ width: "100%", marginLeft: sideClosed ? "0" : "16rem"}} p={12}>
+                <Box>
+                    <Route exact path="/host">
+                        <Heading size="4xl" fontWeight="light" pb={10}>
+                            hello, {sessionUser.username}!
+                        </Heading>
+                        <Host sessionUser={sessionUser} hostVehicles={hostVehicles} todaysDate={todaysDate} />
+                    </Route>
+                    <Route path="/host/vehicles">
+                        <VehiclesPage hostVehicles={hostVehicles} sessionUser={sessionUser}/>
+                    </Route>
+                    <Route path="/host/trips">
+                        <TripsComponent />
+                    </Route>
+                    <Route path="/host/earnings">
 
-                </Route>
-                <Route path="/host/vehicles">
+                    </Route>
+                    <Route path="/host/vehicles">
 
-                </Route>
+                    </Route>    
+                </Box>
             </Box>
         </Flex>
     )

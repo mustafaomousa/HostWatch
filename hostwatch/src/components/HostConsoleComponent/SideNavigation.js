@@ -4,56 +4,45 @@ import { NavLink } from "react-router-dom";
 
 import LogoutButton from "../LogoutComponent/LogoutButton";
 
-const SideNavigation = () => {
+const SideNavigation = ({sideClosed}) => {
 
     return (
-        <Box style={{minWidth: "16rem", height: "100%", position:"fixed", backgroundColor: "orange"}}>
+        <Box style={{minWidth: "16rem", height: "100%", display: sideClosed ? "none" : "", position:"fixed", backgroundColor: "#24305E"}}>
                 <Box style={{display: "flex", flexDirection: "column", height: "100%", padding: "1rem"}}>
-                    <Button as={NavLink} to="/host" style={{width:"100%", height: "65px", padding: "1rem"}}>
-                            <Heading size="md">
-                                Host Console
-                            </Heading>
-                    </Button>
-                    <Divider paddingTop="3rem"/>
-                    <VStack style={{width: "100%", paddingTop:"3rem", paddingBottom: "3rem"}} spacing={3}>
-                        <Button as={NavLink} to="/host/vehicles" width="100%">
+                        <Heading size="md" align="center" p={5} color="white" fontSize="30px">
+                            <NavLink to="/host" >Host Console</NavLink>
+                        </Heading>
+                    {/* <Divider paddingTop="3rem"/> */}
+                    <VStack style={{width: "100%", paddingTop:"3rem", paddingBottom: "3rem", fontSize:"20px"}} spacing={8}>
+                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/vehicles">
                             vehicles.
-                        </Button>
-                        <Button as={NavLink} to="/host/trips" width="100%">
+                        </NavLink>
+                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/trips">
                             trips.
-                        </Button>
-                        <Button as={NavLink} to="/host/vehicles" width="100%">
+                        </NavLink>
+                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/vehicles">
                             earnings.
-                        </Button>
-                        <Button as={NavLink} to="/host/vehicles" width="100%">
+                        </NavLink>
+                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/vehicles">
                             charts.
-                        </Button>
+                        </NavLink>
                     </VStack>
-                    <Divider />
-                    <VStack style={{width: "100%", paddingTop:"3rem", paddingBottom: "3rem"}} spacing={3}>
-                        <Button style={{width: "100%"}} >
-                            <Link>
-                                account settings.
-                            </Link>
-                        </Button>
-                        <Button style={{width: "100%"}} >
-                            <Link>
-                                compile.
-                            </Link>
-                        </Button>
-                        <Button style={{width: "100%"}} >
-                            <Link>
-                                f.a.q.
-                            </Link>
-                        </Button>
-                        <Button style={{width: "100%"}} >
-                            <Link>
-                                contact.
-                            </Link>
-                        </Button>
+                    <VStack style={{width: "100%", paddingTop:"3rem", paddingBottom: "3rem", fontSize:"20px"}} spacing={10}>
+                        <NavLink to="/host" style={{width: "100%", textAlign: "center", color: "white"}} >
+                            account settings.
+                        </NavLink>
+                        <NavLink to="/host" style={{width: "100%", textAlign: "center", color: "white"}} >
+                            compile.
+                        </NavLink>
+                        <NavLink to="/host" style={{width: "100%", textAlign: "center", color: "white"}} >
+                            f.a.q.
+                        </NavLink>
+                        <NavLink to="/host" style={{width: "100%", textAlign: "center", color: "white"}} >
+                            contact.
+                        </NavLink>
                     </VStack>
                     <VStack style={{width: "100%", height: "100%", paddingTop:"3rem", paddingBottom: "1rem", display: "flex", justifyContent: "flex-end"}} spacing={3}>
-                        <Divider />
+                        {/* <Divider /> */}
                         <Box>
                             <Button as={NavLink} to="/" margin="1rem">
                                 <ArrowBackIcon />    

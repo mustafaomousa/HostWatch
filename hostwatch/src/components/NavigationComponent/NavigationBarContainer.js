@@ -11,7 +11,6 @@ const NavigationBarContainer = ({children, ...props}) => {
             w="100%"
             p={5}
             minHeight="65px"
-            bg={["lightgray"]}
             {...props}
             >
                 {children}

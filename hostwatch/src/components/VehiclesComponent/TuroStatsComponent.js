@@ -6,10 +6,10 @@ const TuroStatsComponent = () => {
             <Heading align="flex-start" size="md" style={{textDecoration:"underline"}}>
                 turo stats.
             </Heading>
-            <Center height="250px">
+            {/* <Center height="250px">
                 coming soon
-            </Center>
-            {/* <StatGroup flex flexDirection="row" justifyContent="center" width="100%" p={10} flexWrap="wrap" >
+            </Center> */}
+            <StatGroup flex flexDirection="row" justifyContent="center" width="100%" p={10} flexWrap="wrap" >
                 <Stat align="center">
                     <StatLabel>trips.</StatLabel>
                     <StatNumber>37</StatNumber>
@@ -33,7 +33,7 @@ const TuroStatsComponent = () => {
                         to the end of the current month.
                     </StatHelpText>
                 </Stat>
-            </StatGroup> */}
+            </StatGroup>
         </Box>
     )
 };
