@@ -1,6 +1,6 @@
-import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Stack, useDisclosure } from "@chakra-ui/react"
+import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Stack } from "@chakra-ui/react";
+
 import AddTrip from "./AddTrip";
-import TripsUtils from "./TripsUtils";
 
 const AddTripDrawer = ({ isOpen, onOpen, onClose }) => {
 

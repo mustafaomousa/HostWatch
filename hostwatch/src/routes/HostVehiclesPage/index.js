@@ -1,9 +1,7 @@
-import { Box, Center, Divider, Flex, Heading, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { Box, Center, Heading, LinkBox, LinkOverlay } from "@chakra-ui/react";
 import { Redirect } from "react-router-dom";
 
-import AddVehicleComponent from "../../components/VehiclesComponents/AddVehicleComponent"
 import AddVehicleDrawer from "../../components/VehiclesComponents/AddVehicleDrawer";
-import TuroStatsComponent from "../../components/VehiclesComponents/TuroStatsComponent";
 import VehicleChart from "../../components/VehiclesComponents/VehicleChart"
 import VehiclesUtils from "../../components/VehiclesComponents/VehiclesUtils";
 

@@ -41,7 +41,7 @@ const MenuLinks = ({isOpen}) => {
                     <>
                         <MenuItem to="/host" color="white">Host Console</MenuItem>
                         <Menu>
-                            <MenuButton  colorScheme="blue">
+                            <MenuButton>
                                 <Flex>
                                     <Avatar src="" />
                                 </Flex>      

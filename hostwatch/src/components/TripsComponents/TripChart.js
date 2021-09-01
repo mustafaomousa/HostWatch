@@ -1,5 +1,4 @@
 import { Box, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
 import TripsUtils from "./TripsUtils";
 
 const TripChart = () => {
@@ -7,7 +6,7 @@ const TripChart = () => {
 
     return (
         <Box p={10} width="900px" height="700px" maxHeight="700px" overflow="scroll" backgroundColor="whiteAlpha.800">
-            <Table variant="striped" mt={8} variant="simple">
+            <Table mt={8} variant="simple">
                 <Thead>
                     <Tr>
                         <Th>vehicle</Th>

@@ -1,10 +1,10 @@
-import { Box, Center, Divider, Flex, Heading, LinkBox, LinkOverlay } from "@chakra-ui/react"
+import { Box, Center, Heading, LinkBox, LinkOverlay } from "@chakra-ui/react"
 
-import "./index.css";
-import AddTrip from "../../components/TripsComponents/AddTrip";
 import TripChart from "../../components/TripsComponents/TripChart";
 import TripsUtils from "../../components/TripsComponents/TripsUtils";
 import AddTripDrawer from "../../components/TripsComponents/AddTripDrawer";
+
+import "./index.css";
 
 const TripsComponent = () => {
     const { isOpen, onOpen, onClose } = TripsUtils();

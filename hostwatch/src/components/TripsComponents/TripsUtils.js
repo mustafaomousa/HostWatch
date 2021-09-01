@@ -1,4 +1,4 @@
-import { useDisclosure, useToast } from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -6,14 +6,13 @@ import * as tripActions from "../../store/trip";
 
 const TripsUtils = () => {
     const dispatch = useDispatch();
-    const toast = useToast();
 
     const sessionUser = useSelector(state => state.session.user);
     const hostTrips = useSelector(state => state.trips);
 
     useEffect(() => {
         dispatch(tripActions.getHostTrips(sessionUser.id))
-    }, [])
+    }, [dispatch, sessionUser.id])
 
     const addATrip = (values, actions) => {
         return dispatch(tripActions.addHostTrip(values.startDate, values.endDate, values.earnings, values.reinbursements, values.milesDriven, 1,  sessionUser.id, "www.google.com"))

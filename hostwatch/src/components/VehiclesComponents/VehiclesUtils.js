@@ -1,5 +1,4 @@
-import { EditIcon, ViewIcon } from "@chakra-ui/icons";
-import { Button, Icon, Td, Tr, useDisclosure } from "@chakra-ui/react";
+import { Td, Tr, useDisclosure } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 
 import * as vehicleActions from "../../store/vehicle";

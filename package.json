@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/mustafaomousa/HostWatch/issues"
   },
-  "homepage": "https://github.com/mustafaomousa/HostWatch#readme"
+  "homepage": "https://github.com/mustafaomousa/HostWatch#readme",
+  "dependencies": {
+    "recharts": "^2.1.2",
+    "uninstall": "^0.0.0"
+  }
 }

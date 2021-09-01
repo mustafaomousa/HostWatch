@@ -12,7 +12,7 @@ const HostUtils = () => {
 
     useEffect(() => {
         dispatch(vehicleActions.getHostVehicles(sessionUser.id))
-    },[])
+    },[dispatch, sessionUser.id])
 
     return {dispatch, sessionUser, hostVehicles, todaysDate };
 };

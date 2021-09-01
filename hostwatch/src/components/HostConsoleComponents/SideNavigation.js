@@ -1,5 +1,5 @@
-import { ArrowBackIcon, ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
-import { Box, Button, Container, Divider, Heading, VStack, Link } from "@chakra-ui/react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import { Box, Button, Heading, VStack } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
 import LogoutButton from "../LogoutComponent/LogoutButton";

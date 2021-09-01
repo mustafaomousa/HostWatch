@@ -24,7 +24,7 @@ const HostConsoleComponent = () => {
             <Box style={{ width: "100%", marginLeft: isMobile  ? "0" : "16rem"}} p={12}>
                 <Box>
                     <Route exact path="/host">
-                        <Heading size="4xl" fontWeight="light" pb={10}>
+                        <Heading color="whiteAlpha.600" size="4xl" fontWeight="light" pb={10}>
                             hello, {sessionUser.username}!
                         </Heading>
                         <Host sessionUser={sessionUser} hostVehicles={hostVehicles} todaysDate={todaysDate} />

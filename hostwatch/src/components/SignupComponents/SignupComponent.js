@@ -1,6 +1,6 @@
 import { Button, Center, FormControl, FormErrorMessage, FormLabel, Input } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
-import { useState } from "react";
+// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
@@ -9,7 +9,7 @@ import * as sessionActions from "../../store/session";
 const SignupComponent = () => {
     const dispatch = useDispatch();
 
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -25,7 +25,7 @@ const SignupComponent = () => {
                     return dispatch(sessionActions.signup({...values}))
                         .catch((res) => {
                             if (res.data && res.data.errors) {
-                                setErrors(res.data.errors);
+                                // setErrors(res.data.errors);
                             }
                         })
                 }}
