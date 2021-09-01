@@ -1,11 +1,12 @@
-import { Box, Heading, Table, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import TripsUtils from "./TripsUtils";
 
 const TripChart = () => {
+    const { hostTrips } = TripsUtils();
+
     return (
-        <Box p={20} height="700px">
-            <Heading size="md" style={{textDecoration:"underline"}}>
-                your trips.
-            </Heading>
+        <Box p={10} height="700px" maxHeight="700px" overflow="scroll" backgroundColor="whiteAlpha.800">
             <Table variant="striped" mt={8}>
                 <Thead>
                     <Tr>
@@ -19,16 +20,17 @@ const TripChart = () => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {/* {Object.keys(hostVehicles).map((key, idx) => (
+                    {Object.keys(hostTrips).map((key, idx) => (
                         <Tr>
-                            <Td>{hostVehicles[key].year}</Td>
-                            <Td>{hostVehicles[key].make}</Td>
-                            <Td>{hostVehicles[key].model}</Td>      
-                            <Td>{hostVehicles[key].createdAt.slice(0,10)}</Td>
-                            <Td><Button><Icon as={ViewIcon} /></Button></Td> 
-                            <Td><Button onClick={onOpen}><Icon as={EditIcon} /></Button></Td>       
+                            <Td>{hostTrips[key].vehicleId}</Td>
+                            <Td>{hostTrips[key].startDate}</Td>
+                            <Td>{hostTrips[key].endDate}</Td>
+                            <Td>${hostTrips[key].earnings}</Td>      
+                            <Td>${hostTrips[key].reinbursements}</Td>  
+                            <Td>{hostTrips[key].milesDriven} mi.</Td>
+                            <Td>. . .</Td>
                         </Tr>
-                    ))} */}
+                    ))}
                 </Tbody>
             </Table>
         </Box>

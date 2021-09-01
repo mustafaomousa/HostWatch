@@ -8,9 +8,8 @@ const router = express.Router();
 router.get('/', asyncHandler(async (req, res, next) => {
     const vehicles = await Vehicle.findAll({include: {model: User}});
     
-    return res.json({
-        vehicles
-    })
+    return res.json({ vehicles });
+
 }));
 
 router.get('/:userId', asyncHandler(async (req, res, next) => {
@@ -31,15 +30,6 @@ router.delete("/:vehicleId", asyncHandler(async (req, res, next) => {
     const vehicle = await Vehicle.findByPk(vehicleId);
     await vehicle.destroy();
     return res.json(vehicleId);
-}))
-
-router.delete('/', asyncHandler(async (req, res, next) => {
-    const vehicle = await Vehicle.findByPk(req.body.vehicleId);
-
-    await vehicle.delete()
-    return res.json({
-        vehicle
-    })
-}))
+}));
 
 module.exports = router;

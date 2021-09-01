@@ -14,7 +14,7 @@ const VehiclesPage = ({ sessionUser, hostVehicles }) => {
 
      return (
         <Box>    
-            <Heading size="lg" fontSize="55px" fontWeight="light" pb={10}>
+            <Heading color="whiteAlpha.600" size="lg" fontSize="55px" fontWeight="light" pb={10}>
                 your fleet.
             </Heading>
             <AddVehicleComponent sessionUser={sessionUser} dispatch={dispatch} />
