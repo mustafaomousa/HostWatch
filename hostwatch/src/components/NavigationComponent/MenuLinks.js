@@ -1,4 +1,4 @@
-import { Avatar, Box, Divider, Flex, Link, Menu, MenuButton, MenuGroup, MenuList, Stack, Text } from "@chakra-ui/react";
+import { Avatar, Box, Divider, Flex, Link, Menu, MenuButton, MenuGroup, MenuList, Stack, StackDivider, Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 
 import * as sessionActions from "../../store/session";
@@ -43,6 +43,8 @@ const MenuLinks = ({isOpen}) => {
                         <MenuItem color="white" onClick={(e)=> dispatch(sessionActions.logout())}>Log out</MenuItem>
                     </>
                 )}
+                <StackDivider />
+                <Divider />
             </Stack>
         </Box>
     )
