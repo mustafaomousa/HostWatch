@@ -14,16 +14,16 @@ const SideNavigation = ({sideClosed, setSideClosed}) => {
                         </Heading>
                     {/* <Divider paddingTop="3rem"/> */}
                     <VStack style={{width: "100%", paddingTop:"3rem", paddingBottom: "3rem", fontSize:"20px"}} spacing={8}>
-                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/vehicles">
+                        <NavLink activeClassName="active" style={{width: "100%", textAlign: "center", color: "white"}} to="/host/vehicles">
                             vehicles.
                         </NavLink>
-                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/trips">
+                        <NavLink activeClassName="active" style={{width: "100%", textAlign: "center", color: "white"}} to="/host/trips">
                             trips.
                         </NavLink>
-                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/earnings">
+                        <NavLink activeClassName="active" style={{width: "100%", textAlign: "center", color: "white"}} to="/host/earnings">
                             earnings.
                         </NavLink>
-                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/charts">
+                        <NavLink activeClassName="active" style={{width: "100%", textAlign: "center", color: "white"}} to="/host/charts">
                             charts.
                         </NavLink>
                     </VStack>

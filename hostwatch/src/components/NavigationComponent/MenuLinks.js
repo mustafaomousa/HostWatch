@@ -40,22 +40,7 @@ const MenuLinks = ({isOpen}) => {
                 {sessionUser && (
                     <>
                         <MenuItem to="/host" color="white">Host Console</MenuItem>
-                        <Menu>
-                            <MenuButton>
-                                <Flex>
-                                    <Avatar src="" />
-                                </Flex>      
-                            </MenuButton>
-                            <MenuList>
-                                <MenuGroup align="center" title={sessionUser.email}>
-                                    <Divider />
-                                    <Box align="center" p="5px">
-                                        <MenuItem>Account</MenuItem>
-                                        <MenuItem onClick={(e) => dispatch(sessionActions.logout())}>Log out</MenuItem>    
-                                    </Box>
-                                </MenuGroup>
-                            </MenuList>
-                        </Menu>
+                        <MenuItem color="white" onClick={(e)=> dispatch(sessionActions.logout())}>Log out</MenuItem>
                     </>
                 )}
             </Stack>

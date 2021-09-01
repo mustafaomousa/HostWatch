@@ -1,28 +1,20 @@
-import { Box, Table, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Center, Heading, LinkBox, LinkOverlay, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 
-import EditVehicleComponent from "./EditVehicleComponent";
 import VehiclesUtils from "./VehiclesUtils";
 
-const VehicleChart = ({hostVehicles}) => {
-    const {isOpen, onClose, GenerateVehicleChart } = VehiclesUtils();
+const VehicleChart = ({hostVehicles, onOpen}) => {
+    const { GenerateVehicleChart, isOpen } = VehiclesUtils();
 
     return (
-        <Box p={10} height="700px" width="900px" maxHeight="700px" overflow="scroll" backgroundColor="whiteAlpha.800">
-            <Table mt={8} variant="simple">
-                <Thead>
-                    <Tr>
-                        <Th>year</Th>
-                        <Th>make</Th>
-                        <Th>model</Th>
-                        <Th>date added</Th>
-                    </Tr>
-                </Thead>
-                <Tbody>
-                    <GenerateVehicleChart hostVehicles={hostVehicles} />
-                </Tbody>
-            </Table>
-            <EditVehicleComponent isOpen={isOpen} onClose={onClose}/>
+        <Box maxHeight="700px" width="100%">
+            <SimpleGrid  minChildWidth="200px" columns={4} spacing={25}>
+                <LinkBox as={Center} w="200px" h="200px" backgroundColor="#F8E9A1" _hover={{backgroundColor:"whiteAlpha.300"}} borderRadius="0.35em" >
+                    <LinkOverlay onClick={onOpen} href="#" />
+                    <Heading size="sm" color="black" >add to your fleet.</Heading>
+                </LinkBox>
+                <GenerateVehicleChart  hostVehicles={hostVehicles}/>    
+            </SimpleGrid>
         </Box>
     )
 };

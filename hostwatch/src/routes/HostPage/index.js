@@ -29,16 +29,16 @@ const HostConsoleComponent = () => {
                         </Heading>
                         <Host sessionUser={sessionUser} hostVehicles={hostVehicles} todaysDate={todaysDate} />
                     </Route>
-                    <Route path="/host/vehicles">
+                    <Route exact path="/host/vehicles">
                         <VehiclesPage hostVehicles={hostVehicles} sessionUser={sessionUser}/>
                     </Route>
-                    <Route path="/host/trips">
+                    <Route exact path="/host/trips">
                         <TripsComponent />
                     </Route>
-                    <Route path="/host/earnings">
+                    <Route exact path="/host/earnings">
                         <HostEarningsPage />
                     </Route>
-                    <Route path="/host/charts">
+                    <Route exact path="/host/charts">
                         <HostChartsPage />
                     </Route>    
                 </Box>

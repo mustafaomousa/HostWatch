@@ -15,19 +15,11 @@ const VehiclesPage = ({ sessionUser, hostVehicles }) => {
      return (
         <Box>
             <AddVehicleDrawer isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
-            <Heading color="whiteAlpha.600" size="lg" fontSize="55px" fontWeight="light" pb={10}>
+            <Heading color="whiteAlpha.700" size="lg" fontSize="55px" fontWeight="light" pb={10}>
                 your fleet.
             </Heading>
             <Center>
-                <LinkBox as={Box} minWidth="400px" backgroundColor="whiteAlpha.100" _hover={{backgroundColor:"whiteAlpha.300"}} borderTopLeftRadius="0.55em" borderBottomLeftRadius="0.55em">
-                    <Center height="700px" width="100%">
-                        <LinkOverlay href="#" onClick={onOpen} />
-                        <Heading color="white">
-                            add a vehicle.
-                        </Heading>
-                    </Center>
-                </LinkBox>
-                <VehicleChart hostVehicles={hostVehicles}/> 
+                <VehicleChart isOpen={isOpen} onOpen={onOpen} hostVehicles={hostVehicles}/> 
             </Center>  
         </Box>
         
