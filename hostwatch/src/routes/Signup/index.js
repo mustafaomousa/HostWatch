@@ -1,5 +1,5 @@
 import { Center } from "@chakra-ui/react";
-import SignupComponent from "./SignupComponent";
+import SignupComponent from "../../components/SignupComponents/SignupComponent";
 
 import "./index.css";
 

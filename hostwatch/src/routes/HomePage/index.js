@@ -1,4 +1,4 @@
-import { Box, Center, Flex, GridItem, Heading, Link, SimpleGrid, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Center, Heading, Link, Wrap, WrapItem } from "@chakra-ui/react";
 import { isDesktop } from "react-device-detect";
 
 import "./index.css";

@@ -1,5 +1,5 @@
 import { Center } from "@chakra-ui/react";
-import LoginComponent from "./LoginComponent"
+import LoginComponent from "../../components/LoginComponents/LoginComponent"
 
 import "./index.css";
 

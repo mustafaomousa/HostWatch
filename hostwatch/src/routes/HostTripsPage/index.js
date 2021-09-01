@@ -1,8 +1,8 @@
 import { Box, Divider, Heading } from "@chakra-ui/react"
 
 import "./index.css";
-import AddTrip from "./AddTrip";
-import TripChart from "./TripChart";
+import AddTrip from "../../components/TripsComponents/AddTrip";
+import TripChart from "../../components/TripsComponents/TripChart";
 
 const TripsComponent = () => {
     return (

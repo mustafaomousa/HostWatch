@@ -1,41 +1,25 @@
-import { Badge, Box, Button, Center, Flex, Heading } from "@chakra-ui/react"
-import { CloseIcon, ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import { Redirect, Route } from "react-router-dom";
-import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
+import { isBrowser, isMobile } from "react-device-detect";
 
-import TripsComponent from "../TripsComponent"
-import VehiclesPage from "../VehiclesComponent"
-import Host from "./Host";
-import SideNavigation from "./SideNavigation";
-import * as vehicleActions from "../../store/vehicle";
-
+import TripsComponent from "../../routes/HostTripsPage";
+import VehiclesPage from "../../routes/HostVehiclesPage";
+import Host from "../../components/HostConsoleComponents/Host";
+import SideNavigation from "../../components/HostConsoleComponents/SideNavigation";
 import "./index.css";
+import HostUtils from "../../components/HostConsoleComponents/HostUtils";
 
 const HostConsoleComponent = () => {
-    const dispatch = useDispatch();
-
-    const [sideClosed, setSideClosed] = useState(false);
-
-    const sessionUser = useSelector(state => state.session.user);
-    const hostVehicles = useSelector(state => state.vehicles)
-
-    const todaysDate = Date().toLocaleString().slice(0,10);
-
-    useEffect(() => {
-        dispatch(vehicleActions.getHostVehicles(sessionUser.id))
-    },[])
+    const { sessionUser, hostVehicles, todaysDate } = HostUtils();
 
     if (!sessionUser) return <Redirect to="/" />
-
 
     return (
         <Flex>
             <Box position="fixed">
-                {isBrowser && (<><SideNavigation  setSideClosed={setSideClosed} sideClosed={sideClosed} /></>)}
+                {isBrowser && <SideNavigation />}
             </Box>
-            <Box style={{ width: "100%", marginLeft: isMobile || sideClosed ? "0" : "16rem"}} p={12}>
+            <Box style={{ width: "100%", marginLeft: isMobile  ? "0" : "16rem"}} p={12}>
                 <Box>
                     <Route exact path="/host">
                         <Heading size="4xl" fontWeight="light" pb={10}>

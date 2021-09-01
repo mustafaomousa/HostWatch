@@ -1,13 +1,10 @@
 import { Box, Button, Center, Flex, FormControl, FormErrorMessage, FormLabel, GridItem, Heading, Input, SimpleGrid } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
-import { useDispatch, useSelector } from "react-redux";
 
-import * as vehicleActions from "../../store/vehicle";
+import VehiclesUtils from "./VehiclesUtils";
 
 const AddVehicleComponent = () => {
-    const dispatch = useDispatch();
-
-    const sessionUser = useSelector(state => state.session.user);
+    const { addAVehicle } = VehiclesUtils();
 
     return (
         <Flex direction="column" p={20}>
@@ -16,14 +13,7 @@ const AddVehicleComponent = () => {
             </Heading>
             <Formik
                 initialValues={{ year: 2021 }}
-                onSubmit={(values, actions) => {
-                    return dispatch(vehicleActions.addHostVehicle(values.year, values.make, values.model, values.startingMileage, "www.google.com", sessionUser.id))
-                        .catch((res) => {
-                            if (res.data && res.data.errors) {
-                                // setErrors(res.data.errors);
-                            }
-                        })
-                }}
+                onSubmit={(values, actions) => addAVehicle(values,actions)}
             >
                 {(props) => (
                     <Form>

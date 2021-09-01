@@ -3,16 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 import * as sessionActions from "./store/session";
-import LoginPage from "./components/LoginComponent";
-import SignupPage from "./components/SignupComponent";
+import LoginPage from "./routes/Login";
+import SignupPage from "./routes/Signup";
 import NavigationBar from "./components/NavigationComponent";
-import VehiclesPage from "./components/VehiclesComponent";
-import TripsComponent from "./components/TripsComponent";
-import HomePageComponent from "./components/HomePageComponent";
+import HomePageComponent from "./routes/HomePage";
 
 import "./app.css"
-import HostConsoleComponent from "./components/HostConsoleComponent";
-import { Box } from "@chakra-ui/react";
+import HostConsoleComponent from "./routes/HostPage";
 
 
 

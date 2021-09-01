@@ -1,4 +1,4 @@
-import { Box, Center, Heading, Image, Stat, StatArrow, StatGroup, StatHelpText, StatLabel, StatNumber, StylesProvider } from "@chakra-ui/react";
+import { Box, Heading, Stat, StatArrow, StatGroup, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/react";
 
 const TuroStatsComponent = () => {
     return (
@@ -6,9 +6,6 @@ const TuroStatsComponent = () => {
             <Heading align="flex-start" size="md" style={{textDecoration:"underline"}}>
                 turo stats.
             </Heading>
-            {/* <Center height="250px">
-                coming soon
-            </Center> */}
             <StatGroup flex flexDirection="row" justifyContent="center" width="100%" p={10} flexWrap="wrap" >
                 <Stat align="center">
                     <StatLabel>trips.</StatLabel>
