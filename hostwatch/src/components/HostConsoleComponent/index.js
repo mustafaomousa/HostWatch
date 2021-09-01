@@ -2,7 +2,8 @@ import { Badge, Box, Button, Center, Flex, Heading } from "@chakra-ui/react"
 import { CloseIcon, ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Route } from "react-router-dom"
+import { Redirect, Route } from "react-router-dom";
+import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 
 import TripsComponent from "../TripsComponent"
 import VehiclesPage from "../VehiclesComponent"
@@ -31,11 +32,11 @@ const HostConsoleComponent = () => {
 
     return (
         <Flex>
-            <SideNavigation sideClosed={sideClosed} />
+            {isBrowser && (<><SideNavigation sideClosed={sideClosed} />
             <Button onClick={() => setSideClosed(!sideClosed)} style={{display: "fixed", left: sideClosed ? "0px" : "260px"}}>
                 {sideClosed ? <ArrowRightIcon/> : <ArrowLeftIcon />}
-            </Button>
-            <Box style={{ width: "100%", marginLeft: sideClosed ? "0" : "16rem"}} p={12}>
+            </Button></>)}
+            <Box style={{ width: "100%", marginLeft: isMobile || sideClosed ? "0" : "16rem"}} p={12}>
                 <Box>
                     <Route exact path="/host">
                         <Heading size="4xl" fontWeight="light" pb={10}>
