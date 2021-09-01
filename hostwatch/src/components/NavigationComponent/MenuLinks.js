@@ -33,17 +33,13 @@ const MenuLinks = ({isOpen}) => {
                 <MenuItem to="/" color="white">Home</MenuItem>
                 {!sessionUser && (
                     <>
-                        <MenuItem to="/login">Log in</MenuItem>
-                        <MenuItem to="/signup">Sign up</MenuItem>
+                        <MenuItem color="white" to="/login">Log in</MenuItem>
+                        <MenuItem color="white" to="/signup">Sign up</MenuItem>
                     </>
                 )}
                 {sessionUser && (
                     <>
                         <MenuItem to="/host" color="white">Host Console</MenuItem>
-                        {/* <MenuItem to="/vehicles">Vehicles</MenuItem>
-                        <MenuItem to="/trips">Trips</MenuItem>
-                        <MenuItem to="/">Earnings</MenuItem>
-                        <MenuItem to="/">Charts</MenuItem> */}
                         <Menu>
                             <MenuButton  colorScheme="blue">
                                 <Flex>

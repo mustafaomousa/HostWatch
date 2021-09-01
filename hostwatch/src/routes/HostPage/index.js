@@ -8,6 +8,8 @@ import Host from "../../components/HostConsoleComponents/Host";
 import SideNavigation from "../../components/HostConsoleComponents/SideNavigation";
 import "./index.css";
 import HostUtils from "../../components/HostConsoleComponents/HostUtils";
+import HostEarningsPage from "../HostEarningsPage";
+import HostChartsPage from "../HostChartsPage";
 
 const HostConsoleComponent = () => {
     const { sessionUser, hostVehicles, todaysDate } = HostUtils();
@@ -34,10 +36,10 @@ const HostConsoleComponent = () => {
                         <TripsComponent />
                     </Route>
                     <Route path="/host/earnings">
-
+                        <HostEarningsPage />
                     </Route>
-                    <Route path="/host/vehicles">
-
+                    <Route path="/host/charts">
+                        <HostChartsPage />
                     </Route>    
                 </Box>
             </Box>

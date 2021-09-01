@@ -14,8 +14,8 @@ const HomePageComponent = ({sessionUser}) => {
                     </Heading>
                 </Box>    
                 {!sessionUser && (
-                <Heading size="sm">
-                    join today for <Link href="/signup" color="blue">free</Link>.
+                <Heading color="white" size="sm">
+                    join today for <Link href="/signup" color="blue.200">free</Link>.
                 </Heading>)}
             </Center>
             <Center align="center">

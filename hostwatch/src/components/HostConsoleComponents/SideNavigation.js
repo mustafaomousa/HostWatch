@@ -20,10 +20,10 @@ const SideNavigation = ({sideClosed, setSideClosed}) => {
                         <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/trips">
                             trips.
                         </NavLink>
-                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/vehicles">
+                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/earnings">
                             earnings.
                         </NavLink>
-                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/vehicles">
+                        <NavLink style={{width: "100%", textAlign: "center", color: "white"}} to="/host/charts">
                             charts.
                         </NavLink>
                     </VStack>
