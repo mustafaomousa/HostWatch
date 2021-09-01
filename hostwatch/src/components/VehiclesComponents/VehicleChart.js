@@ -8,19 +8,14 @@ const VehicleChart = ({hostVehicles}) => {
     const {isOpen, onClose, GenerateVehicleChart } = VehiclesUtils();
 
     return (
-        <Box p={20}>
-            <Heading size="md" style={{textDecoration:"underline"}}>
-                your fleet.
-            </Heading>
-            <Table variant="striped" mt={8}>
+        <Box p={10} height="700px" width="900px" maxHeight="700px" overflow="scroll" backgroundColor="whiteAlpha.800">
+            <Table variant="striped" mt={8} variant="simple">
                 <Thead>
                     <Tr>
                         <Th>year</Th>
                         <Th>make</Th>
                         <Th>model</Th>
                         <Th>date added</Th>
-                        <Th>pictures</Th>
-                        <Th></Th>
                     </Tr>
                 </Thead>
                 <Tbody>

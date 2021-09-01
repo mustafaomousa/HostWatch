@@ -6,8 +6,8 @@ const TripChart = () => {
     const { hostTrips } = TripsUtils();
 
     return (
-        <Box p={10} height="700px" maxHeight="700px" overflow="scroll" backgroundColor="whiteAlpha.800">
-            <Table variant="striped" mt={8}>
+        <Box p={10} width="900px" height="700px" maxHeight="700px" overflow="scroll" backgroundColor="whiteAlpha.800">
+            <Table variant="striped" mt={8} variant="simple">
                 <Thead>
                     <Tr>
                         <Th>vehicle</Th>

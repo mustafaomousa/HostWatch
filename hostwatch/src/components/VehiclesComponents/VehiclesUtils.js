@@ -25,9 +25,7 @@ const VehiclesUtils = () => {
             <Td>{hostVehicles[key].year}</Td>
             <Td>{hostVehicles[key].make}</Td>
             <Td>{hostVehicles[key].model}</Td>      
-            <Td>{hostVehicles[key].createdAt.slice(0,10)}</Td>
-            <Td><Button><Icon as={ViewIcon} /></Button></Td> 
-            <Td><Button onClick={onOpen}><Icon as={EditIcon} /></Button></Td>       
+            <Td>{hostVehicles[key].createdAt.slice(0,10)}</Td>   
         </Tr>
     )));
 

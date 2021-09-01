@@ -15,9 +15,9 @@ const TripsComponent = () => {
             <Heading color="whiteAlpha.600" fontSize="55px" fontWeight="light" pb={10}>
                 your trips.
             </Heading>
-            <Flex>
-                <LinkBox as={Box} minHeight="100%" minWidth="400px" backgroundColor="whiteAlpha.100" _hover={{backgroundColor:"whiteAlpha.300"}} borderTopLeftRadius="0.55em" borderBottomLeftRadius="0.55em">
-                    <Center height="100%">
+            <Center>
+                <LinkBox as={Box} minWidth="400px" backgroundColor="whiteAlpha.100" _hover={{backgroundColor:"whiteAlpha.300"}} borderTopLeftRadius="0.55em" borderBottomLeftRadius="0.55em">
+                    <Center height="700px" width="100%">
                         <LinkOverlay href="#" onClick={onOpen} />
                         <Heading color="white">
                             add a trip.    
@@ -25,7 +25,7 @@ const TripsComponent = () => {
                     </Center>
                 </LinkBox>
                 <TripChart />    
-            </Flex>
+            </Center>
         </Box>
         
     )
