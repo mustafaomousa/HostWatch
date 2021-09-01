@@ -30,7 +30,7 @@ const MenuLinks = ({isOpen}) => {
               direction={["column", "row", "row", "row"]}
               pt={[4, 4, 0, 0]}
             >
-                <MenuItem to="/">Home</MenuItem>
+                <MenuItem to="/" color="white">Home</MenuItem>
                 {!sessionUser && (
                     <>
                         <MenuItem to="/login">Log in</MenuItem>
@@ -39,7 +39,7 @@ const MenuLinks = ({isOpen}) => {
                 )}
                 {sessionUser && (
                     <>
-                        <MenuItem to="/host">Host Console</MenuItem>
+                        <MenuItem to="/host" color="white">Host Console</MenuItem>
                         {/* <MenuItem to="/vehicles">Vehicles</MenuItem>
                         <MenuItem to="/trips">Trips</MenuItem>
                         <MenuItem to="/">Earnings</MenuItem>

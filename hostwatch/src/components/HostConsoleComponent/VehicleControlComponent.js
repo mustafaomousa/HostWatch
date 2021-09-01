@@ -6,7 +6,7 @@ const VehicleControlComponent = ({hostVehicles}) => {
 
     return (
         <Box pl={20}>
-            <Center flex flexDir="row" justifyContent="flex-start" p={10} height="100%" width="100%" flexWrap="wrap">
+            <Center p={10} height="100%" width="100%" flexWrap="wrap">
                 {Object.keys(hostVehicles).map((vehicleId, idx) => (
                     <Box className="VehicleControlTile">
                             {hostVehicles[vehicleId].make} {hostVehicles[vehicleId].model}

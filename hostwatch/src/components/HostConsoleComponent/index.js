@@ -32,10 +32,9 @@ const HostConsoleComponent = () => {
 
     return (
         <Flex>
-            {isBrowser && (<><SideNavigation sideClosed={sideClosed} />
-            <Button onClick={() => setSideClosed(!sideClosed)} style={{display: "fixed", left: sideClosed ? "0px" : "260px"}}>
-                {sideClosed ? <ArrowRightIcon/> : <ArrowLeftIcon />}
-            </Button></>)}
+            <Box position="fixed">
+                {isBrowser && (<><SideNavigation  setSideClosed={setSideClosed} sideClosed={sideClosed} /></>)}
+            </Box>
             <Box style={{ width: "100%", marginLeft: isMobile || sideClosed ? "0" : "16rem"}} p={12}>
                 <Box>
                     <Route exact path="/host">

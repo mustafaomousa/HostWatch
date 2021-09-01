@@ -1,13 +1,13 @@
-import { ArrowBackIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon, ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import { Box, Button, Container, Divider, Heading, VStack, Link } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
 import LogoutButton from "../LogoutComponent/LogoutButton";
 
-const SideNavigation = ({sideClosed}) => {
+const SideNavigation = ({sideClosed, setSideClosed}) => {
 
     return (
-        <Box style={{minWidth: "16rem", height: "100%", display: sideClosed ? "none" : "", position:"fixed", backgroundColor: "#24305E"}}>
+        <Box style={{minWidth: "16rem", position:"fixed", height:"100%", display: sideClosed ? "none" : "", backgroundColor: "#374785"}}>
                 <Box style={{display: "flex", flexDirection: "column", height: "100%", padding: "1rem"}}>
                         <Heading size="md" align="center" p={5} color="white" fontSize="30px">
                             <NavLink to="/host" >Host Console</NavLink>
