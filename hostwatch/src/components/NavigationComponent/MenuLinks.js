@@ -1,5 +1,6 @@
 import { Avatar, Box, Divider, Flex, Link, Menu, MenuButton, MenuGroup, MenuList, Stack, StackDivider, Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 import * as sessionActions from "../../store/session";
 
@@ -18,6 +19,12 @@ const MenuLinks = ({isOpen}) => {
 
     const sessionUser = useSelector(state => state.session.user);
 
+    const logoutUser = (e) => {
+        e.preventDefault();
+
+        dispatch(sessionActions.logout())
+    }
+
     return (
         <Box
             display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -33,18 +40,16 @@ const MenuLinks = ({isOpen}) => {
                 <MenuItem to="/" color="white">Home</MenuItem>
                 {!sessionUser && (
                     <>
-                        <MenuItem color="white" to="/login">Log in</MenuItem>
-                        <MenuItem color="white" to="/signup">Sign up</MenuItem>
+                        <MenuItem as={Link} color="white" to="/login">Log in</MenuItem>
+                        <MenuItem as={Link} color="white" to="/signup">Sign up</MenuItem>
                     </>
                 )}
                 {sessionUser && (
                     <>
-                        <MenuItem to="/host" color="white">Host Console</MenuItem>
-                        <MenuItem color="white" onClick={(e)=> dispatch(sessionActions.logout())}>Log out</MenuItem>
+                        <MenuItem as={Link} to="/host" color="white">Host Console</MenuItem>
+                        <MenuItem color="white" onClick={logoutUser}>Log out</MenuItem>
                     </>
                 )}
-                <StackDivider />
-                <Divider />
             </Stack>
         </Box>
     )
