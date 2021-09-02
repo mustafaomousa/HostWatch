@@ -15,7 +15,7 @@ const NavigationBar = (props) => {
                 w="100px"
             />
             <MenuToggle toggle={toggle} isOpen={isOpen} />
-            <MenuLinks isOpen={isOpen} />
+            <MenuLinks navIsOpen={isOpen} />
         </NavigationBarContainer>
     )
 }

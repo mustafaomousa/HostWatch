@@ -1,8 +1,10 @@
-import { Avatar, Box, Divider, Flex, Link, Menu, MenuButton, MenuGroup, MenuList, Stack, StackDivider, Text } from "@chakra-ui/react";
+import { Box,  Button,  Link, Stack,  Text, useDisclosure } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 
 import * as sessionActions from "../../store/session";
+import LoginComponent from "../LoginComponents/LoginComponent";
+import LoginUtils from "../LoginComponents/LoginUtils";
+import SignupComponent from "../SignupComponents/SignupComponent";
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
     return (
@@ -14,8 +16,15 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
     )
 }
 
-const MenuLinks = ({isOpen}) => {
+const MenuLinks = ({navIsOpen}) => {
     const dispatch = useDispatch();
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const openLoginModal = (e) => {
+        e.preventDefault();
+        return () => isOpen
+    };
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -27,7 +36,7 @@ const MenuLinks = ({isOpen}) => {
 
     return (
         <Box
-            display={{ base: isOpen ? "block" : "none", md: "block" }}
+            display={{ base: navIsOpen ? "block" : "none", md: "block" }}
             flexBasis={{ base: "100%", md: "auto" }}
         >
             <Stack
@@ -40,8 +49,9 @@ const MenuLinks = ({isOpen}) => {
                 <MenuItem to="/" color="white">Home</MenuItem>
                 {!sessionUser && (
                     <>
-                        <MenuItem as={Link} color="white" to="/login">Log in</MenuItem>
-                        <MenuItem as={Link} color="white" to="/signup">Sign up</MenuItem>
+                        <LoginComponent />
+                        <SignupComponent />
+                        {/* <MenuItem as={Link} color="white" to="/signup">Sign up</MenuItem> */}
                     </>
                 )}
                 {sessionUser && (
