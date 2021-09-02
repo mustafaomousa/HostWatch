@@ -16,8 +16,8 @@ const SideNavigation = ({sideClosed, setSideClosed}) => {
                             </Heading>
                         </Flex>
                     </Flex>
-                    <VStack style={{width: "100%", paddingTop:"3rem", paddingBottom: "3rem", fontSize:"20px"}}>
-                        <Link pt={20} activeClassName="active" style={{width: "100%", textAlign: "center", color: "white", transition: "cubic-bezier(0.77, 0, 0.175, 1) .5s"}} to="/host" height="50px">
+                    <VStack style={{width: "100%", paddingTop:"3rem", paddingBottom: "3rem", fontSize:"20px"}} spacing="30px">
+                        <Link activeClassName="active" style={{width: "100%", textAlign: "center", color: "white", transition: "cubic-bezier(0.77, 0, 0.175, 1) .5s"}} to="/host" height="50px">
                             dashboard.
                         </Link>
                         <NavLink activeClassName="active" style={{width: "100%", textAlign: "center", color: "white", transition: "cubic-bezier(0.77, 0, 0.175, 1) .5s"}} to="/host/vehicles" height="50px">
@@ -43,11 +43,12 @@ const SideNavigation = ({sideClosed, setSideClosed}) => {
                     </VStack> */}
                     <VStack style={{width: "100%", height: "100%", paddingTop:"3rem", paddingBottom: "1rem", display: "flex", justifyContent: "flex-end"}} spacing={3}>
                         {/* <Divider /> */}
-                        {/* <Box>
-                            <Link to="/" margin="1rem">
-                                <Heading size="sm" color="white">home</Heading>
-                            </Link>
-                        </Box> */}
+                        <NavLink to="/host/abc" style={{width: "100%", textAlign: "center", color: "white"}} >
+                            account settings.
+                        </NavLink>
+                        <NavLink to="/host/abc" style={{width: "100%", textAlign: "center", color: "white"}} >
+                            compile.
+                        </NavLink>
                     </VStack>
                 </Box>
             </Box>

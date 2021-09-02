@@ -10,7 +10,7 @@ const VehicleControlComponent = ({hostVehicles}) => {
 
 
     return (
-        <Box align="center">
+        <Box width="100%">
             <AlertDialog
                 isOpen={lockDialogOpen}
                 leastDestructiveRef={cancelRef}
@@ -36,25 +36,28 @@ const VehicleControlComponent = ({hostVehicles}) => {
                     </AlertDialogContent>
                 </AlertDialogOverlay>
             </AlertDialog>
-            <br/>
-            <Flex height="100%" flexWrap="wrap">
+            <Flex height="100%">
                 {Object.keys(hostVehicles).map((vehicleId, idx) => (
-                    <Box className="VehicleControlTile">
-                            <Heading size="sm" p={2}>
-                                {hostVehicles[vehicleId].make} {hostVehicles[vehicleId].model}    
-                            </Heading>
-                            <Flex justify="space-evenly">
-                                <Button  isLoading={idx === 1 ? true : false}>
-                                    <Icon as={UnlockIcon}  />   
-                                </Button>
-                                <Button onClick={()=>setLockDialogOpen(true)}>
-                                    <Icon as={LockIcon} />
-                                </Button>
-                                <Button >
-                                    <Icon as={Search2Icon} />
-                                </Button>
-                            </Flex>
-                    </Box>
+                    <Flex flexDir="column">
+                        <Box className="VehicleControlTile">
+                                <Heading size="sm">
+                                    {hostVehicles[vehicleId].make} {hostVehicles[vehicleId].model}    
+                                </Heading>
+                                
+                        </Box>
+                        <Flex justify="space-evenly">
+                            <Button  isLoading={idx === 1 ? true : false}>
+                                <Icon as={UnlockIcon}  />   
+                            </Button>
+                            <Button onClick={()=>setLockDialogOpen(true)}>
+                                <Icon as={LockIcon} />
+                            </Button>
+                            <Button >
+                                <Icon as={Search2Icon} />
+                            </Button>
+                        </Flex>
+                    </Flex>
+                    
                 ))}
             </Flex>
         </Box>
