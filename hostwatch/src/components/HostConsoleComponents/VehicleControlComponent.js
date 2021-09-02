@@ -1,4 +1,4 @@
-import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Box, Button, Center, Icon } from "@chakra-ui/react";
+import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Box, Button, Center, Flex, Heading, Icon } from "@chakra-ui/react";
 import { LockIcon, UnlockIcon, Search2Icon } from "@chakra-ui/icons";
 import React, { useState } from "react";
 
@@ -10,11 +10,12 @@ const VehicleControlComponent = ({hostVehicles}) => {
 
 
     return (
-        <Box>
+        <Box align="center">
             <AlertDialog
                 isOpen={lockDialogOpen}
                 leastDestructiveRef={cancelRef}
                 onClose={onLockDialogClose}
+                isCentered
             >
                 <AlertDialogOverlay>
                     <AlertDialogContent>
@@ -36,24 +37,26 @@ const VehicleControlComponent = ({hostVehicles}) => {
                 </AlertDialogOverlay>
             </AlertDialog>
             <br/>
-            <Center height="100%" width="100%" flexWrap="wrap">
+            <Flex height="100%" flexWrap="wrap">
                 {Object.keys(hostVehicles).map((vehicleId, idx) => (
                     <Box className="VehicleControlTile">
-                            {hostVehicles[vehicleId].make} {hostVehicles[vehicleId].model}
-                            <Box pt={5}>
-                                <Button mr={5} isLoading={idx === 1 ? true : false}>
+                            <Heading size="sm" p={2}>
+                                {hostVehicles[vehicleId].make} {hostVehicles[vehicleId].model}    
+                            </Heading>
+                            <Flex justify="space-evenly">
+                                <Button  isLoading={idx === 1 ? true : false}>
                                     <Icon as={UnlockIcon}  />   
                                 </Button>
                                 <Button onClick={()=>setLockDialogOpen(true)}>
                                     <Icon as={LockIcon} />
                                 </Button>
-                                <Button ml={5}>
+                                <Button >
                                     <Icon as={Search2Icon} />
                                 </Button>
-                            </Box>
+                            </Flex>
                     </Box>
                 ))}
-            </Center>
+            </Flex>
         </Box>
     )
 };

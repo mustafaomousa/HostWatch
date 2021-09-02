@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import * as vehicleActions from "../../store/vehicle";
 
 const HostUtils = () => {
@@ -11,8 +12,12 @@ const HostUtils = () => {
     const todaysDate = Date().toLocaleString().slice(0,10);
 
     useEffect(() => {
-        dispatch(vehicleActions.getHostVehicles(sessionUser.id))
-    },[dispatch, sessionUser.id])
+        if (!sessionUser) {
+            return <Redirect to="/" />
+        } else {
+            dispatch(vehicleActions.getHostVehicles(sessionUser.id))
+        }
+    },[dispatch])
 
     return {dispatch, sessionUser, hostVehicles, todaysDate };
 };

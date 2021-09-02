@@ -13,9 +13,9 @@ const VehiclesPage = ({ sessionUser, hostVehicles }) => {
     if (!sessionUser) return <Redirect to="/login" />
 
      return (
-        <Box>
+        <Box pt={20}>
             <AddVehicleDrawer isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
-            <Heading color="whiteAlpha.700" size="lg" fontSize="55px" fontWeight="light" pb={10}>
+            <Heading color="black" pb={10}>
                 your fleet.
             </Heading>
             <Center>

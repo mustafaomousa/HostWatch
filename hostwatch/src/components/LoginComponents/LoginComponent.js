@@ -13,7 +13,7 @@ const LoginComponent = () => {
     
     const [errors, setErrors] = useState([]);
 
-    const {isOpen, onClose, onOpen} = LoginUtils();
+    const {isOpen, onClose, onOpen, loginDemouser} = LoginUtils();
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -24,7 +24,7 @@ const LoginComponent = () => {
 
     return (
         <>
-            <Button onClick={onOpen} backgroundColor="gray">Log in</Button>
+            <Button onClick={onOpen} backgroundColor="white">Log in</Button>
             <Modal isOpen={isOpen} onClose={onClose} isCentered>
                 <ModalOverlay />
                 <ModalContent>
@@ -85,6 +85,7 @@ const LoginComponent = () => {
                         </Center>
                     </ModalBody>
                     <ModalFooter>
+                        <Button onClick={loginDemouser}>Demo</Button>
                         <Button onClick={onClose}>Close</Button>                           
                     </ModalFooter>     
                 </ModalContent>

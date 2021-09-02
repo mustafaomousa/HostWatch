@@ -22,7 +22,7 @@ const SignupComponent = () => {
 
     return (
         <>
-            <Button onClick={onOpen} backgroundColor="gray">Sign up</Button>
+            <Button onClick={onOpen} backgroundColor="white">Sign up</Button>
             <Modal isOpen={isOpen} onClose={onClose} onOpen={onOpen} isCentered>
                 <ModalOverlay/>
                 <ModalContent>

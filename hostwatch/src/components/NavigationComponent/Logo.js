@@ -4,7 +4,7 @@ import { isDesktop, isMobile } from "react-device-detect";
 const Logo = () => {
     return (
         <Box>
-            {isDesktop && (<Text fontSize="4xl" fontWeight="bold" color="white">
+            {isDesktop && (<Text fontSize="3xl" fontWeight="bold" color="white">
                 HostWatch
             </Text>)}
             {isMobile && (<Text fontSize="lg" fontWeight="bold" color="white">

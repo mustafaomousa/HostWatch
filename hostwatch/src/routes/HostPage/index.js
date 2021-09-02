@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Heading, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Heading, Input, VStack } from "@chakra-ui/react";
 import { NavLink, Redirect, Route } from "react-router-dom";
 import { isBrowser, isMobile } from "react-device-detect";
 
@@ -10,10 +10,14 @@ import "./index.css";
 import HostUtils from "../../components/HostConsoleComponents/HostUtils";
 import HostEarningsPage from "../HostEarningsPage";
 import HostChartsPage from "../HostChartsPage";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, Search2Icon, } from "@chakra-ui/icons";
 import { useState } from "react";
+import { logout } from "../../store/session";
+import { useDispatch } from "react-redux";
 
 const HostConsoleComponent = () => {
+    const dispatch = useDispatch();
+
     const { sessionUser, hostVehicles, todaysDate } = HostUtils();
     const [mobileBurgerOpen, setMobileBurgerOpen] = useState(false);
 
@@ -40,12 +44,20 @@ const HostConsoleComponent = () => {
             <Box position="fixed">
                 {isBrowser && <SideNavigation />}
             </Box>
-            <Box style={{ width: "100%", marginLeft: isMobile  ? "0" : "16rem", paddingTop: isMobile ? "100px" : "0"}} p={12} textAlign={isMobile ? 'center' : ''} >
+            <Box style={{ width: "100%", marginLeft: isMobile  ? "0" : "16rem", paddingTop: isMobile ? "100px" : "50px"}} p={12} textAlign={isMobile ? 'center' : ''} >
+                <Flex justify="space-between">
+                    <Flex justify="center" align="center">
+                        <Search2Icon mr={10} />
+                        <Input backgroundColor="lightgray" placeholder="quick actions" _placeholder={{color:"darkslategray", textAlign:"center"}} />
+                    </Flex>
+                    <Flex>
+                        <Button backgroundColor="lightgray" onClick={()=>dispatch(logout())}>
+                            logout
+                        </Button>
+                    </Flex>
+                </Flex>
                 <Box>
                     <Route exact path="/host">
-                        <Heading color="whiteAlpha.600" size="4xl" fontWeight="light" pb={10}>
-                            hello, {sessionUser.username}!
-                        </Heading>
                         <Host sessionUser={sessionUser} hostVehicles={hostVehicles} todaysDate={todaysDate} />
                     </Route>
                     <Route exact path="/host/vehicles">

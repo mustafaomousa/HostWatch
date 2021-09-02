@@ -4,7 +4,7 @@ import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 const MenuToggle = ({ toggle, isOpen }) => {
     return (
         <Box display={{base: "block", md:"none"}} onClick={toggle}>
-            {isOpen ? <CloseIcon color="white" /> : <HamburgerIcon color="white" />}
+            {isOpen ? <CloseIcon color="white" /> : <HamburgerIcon boxSize="25px" color="white" />}
         </Box>
     )
 };

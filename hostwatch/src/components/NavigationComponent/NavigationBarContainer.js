@@ -9,9 +9,11 @@ const NavigationBarContainer = ({children, ...props}) => {
             justify="space-between"
             wrap="wrap"
             w="100%"
-            p={5}
+            pl={10}
+            pr={10}
             minHeight="65px"
             {...props}
+            backgroundColor="#24305E"
             >
                 {children}
             </Flex>
