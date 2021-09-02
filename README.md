@@ -1,7 +1,5 @@
 ## HostWatch
 
-#### Example:
-
 HostWatch
 
 <!-- An application used to filter data form Twitter based on user preference, built with React, Redux, JavaScript, and CSS. -->
@@ -15,8 +13,6 @@ This project is currently in developement and is not fully functional as of Sept
 
 
 ## Installation and Setup Instructions
-
-#### Example:  
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
