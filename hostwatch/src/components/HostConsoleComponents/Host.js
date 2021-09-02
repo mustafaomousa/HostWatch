@@ -12,8 +12,8 @@ const Host = ({sessionUser, hostVehicles, todaysDate}) => {
     const [userLat, setUserLat] = useState(37.7853)
 
     const INITIAL_VIEW_STATE = {
-        longitude: userLong,
-        latitude: userLat,
+        longitude: -122.41669,
+        latitude: 37.7853,
         zoom: 17,
         pitch: 30,
         bearing: 0
@@ -22,7 +22,7 @@ const Host = ({sessionUser, hostVehicles, todaysDate}) => {
     const layers = [
         new LineLayer({id: 'line-layer'})
     ];
-    
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(( position )=> {
             setUserLong(position.coords.longitude);
