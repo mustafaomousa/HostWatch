@@ -6,10 +6,10 @@ import * as sessionActions from "./store/session";
 import LoginPage from "./routes/Login";
 import SignupPage from "./routes/Signup";
 import NavigationBar from "./components/NavigationComponent";
-import HomePageComponent from "./routes/HomePage";
 
 import "./app.css"
 import HostConsoleComponent from "./routes/HostPage";
+import Home from "./components/Home";
 
 
 
@@ -29,7 +29,7 @@ function App() {
       <Switch>
           <Route exact path="/">
             <NavigationBar />
-            <HomePageComponent sessionUser={sessionUser} />
+            <Home sessionUser={sessionUser} />
           </Route>
           <Route path="/login">
             <NavigationBar />

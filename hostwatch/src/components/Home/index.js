@@ -3,7 +3,7 @@ import { isDesktop, isMobile } from "react-device-detect";
 
 import "./index.css";
 
-const HomePageComponent = ({sessionUser}) => {
+const Home = ({sessionUser}) => {
 
     if (isDesktop) return (
         <Box>
@@ -21,19 +21,22 @@ const HomePageComponent = ({sessionUser}) => {
             <Center align="center">
                 {isDesktop && (<Wrap align="center" spacing={10}>
                     <WrapItem>
-                        <Box backgroundColor="lightgray" transition="ease 0.2s" _hover={{height:"410px", width:"305px"}} height={400} width={300} borderRadius="0.75em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
-
-                        </Box>    
+                        <Center flexDir="column" transition="ease 0.2s" _hover={{height:"410px", width:"305px"}} height={400} width={300} borderRadius="0.75em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
+                            <Heading size="lg"> manage your fleet </Heading>
+                            <Heading pt={5} size="xs"> lock, unlock, and track up to 6 (eligible) vehicles in your fleet </Heading>
+                        </Center>    
                     </WrapItem>
                     <WrapItem>
-                        <Box backgroundColor="lightgray" transition="ease 0.2s" _hover={{height:"460px", width:"355px"}} height={450} width={350} borderRadius="0.75em" style={{boxShadow:"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"}}>
-                        
-                        </Box>
+                        <Center flexDir="column" transition="ease 0.2s" _hover={{height:"460px", width:"355px"}} height={450} width={350} borderRadius="0.75em" style={{boxShadow:"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"}}>
+                            <Heading size="lg"> track your earnings </Heading>
+                            <Heading pt={5} size="xs"> log vehicle trips and watch your earnings grow </Heading>
+                        </Center>
                     </WrapItem>
                     <WrapItem>
-                        <Box backgroundColor="lightgray" transition="ease 0.2s" _hover={{height:"410px", width:"305px"}} height={400} width={300} borderRadius="0.75em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
-
-                        </Box>    
+                        <Center flexDir="column" transition="ease 0.2s" _hover={{height:"410px", width:"305px"}} height={400} width={300} borderRadius="0.75em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
+                            <Heading size="lg"> track your miles </Heading>
+                            <Heading pt={5} size="xs"> monitor your fleets mileage and estimate tax deductions. </Heading>
+                        </Center>    
                     </WrapItem>
                     
                 </Wrap>)}
@@ -56,7 +59,7 @@ const HomePageComponent = ({sessionUser}) => {
             <Center >
                 <SimpleGrid columns={1} spacing="35px">
                     <Box backgroundColor="#F8E9A1" height={300} width={280} borderRadius="0.85em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
-
+                        manage your fleet
                     </Box>
                     <Box backgroundColor="#F8E9A1" height={300} width={280} borderRadius="0.85em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
 
@@ -75,4 +78,4 @@ const HomePageComponent = ({sessionUser}) => {
     )
 };
 
-export default HomePageComponent;
+export default Home;

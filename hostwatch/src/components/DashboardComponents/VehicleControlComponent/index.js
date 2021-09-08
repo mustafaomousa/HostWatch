@@ -3,10 +3,10 @@ import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter,
     Button, Flex, Heading, Icon, SimpleGrid } from "@chakra-ui/react";
 import { LockIcon, UnlockIcon, Search2Icon } from "@chakra-ui/icons";
 import React from "react";
-import { LockAlertDialog, VehicleControlUtils } from "./VehicleControlUtils";
+import { VehicleControlUtils } from "./VehicleControlUtils";
 
 
-const VehicleControlComponent = ({hostVehicles, vehicleId}) => {
+const VehicleControl = ({hostVehicles, vehicleId}) => {
     const { lockDialogOpen, onLockDialogClose, cancelRef, setLockDialogOpen } = VehicleControlUtils();
 
     return (
@@ -58,4 +58,4 @@ const VehicleControlComponent = ({hostVehicles, vehicleId}) => {
     )
 };
 
-export default VehicleControlComponent;
+export default VehicleControl;

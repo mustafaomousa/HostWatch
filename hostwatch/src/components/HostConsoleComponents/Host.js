@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, SimpleGrid, Button } from "@chakra-ui/react";
 import { useState } from "react";
-import VehicleControlComponent from "../DashboardComponents/VehicleControlComponent/VehicleControlComponent";
+import VehicleControl from "../DashboardComponents/VehicleControlComponent";
 
 
 const Host = ({sessionUser, hostVehicles, todaysDate}) => {
@@ -42,7 +42,7 @@ const Host = ({sessionUser, hostVehicles, todaysDate}) => {
                     <Flex flexDir="column" justify="space-between" backgroundColor="lightgray">
                         <Box p={5} height="100%">
                             {selectedVehicle === 0 && <Heading align="center"> please select a vehicle. </Heading>}
-                            {selectedVehicle !== 0 && <VehicleControlComponent hostVehicles={hostVehicles} vehicleId={selectedVehicle} />}
+                            {selectedVehicle !== 0 && <VehicleControl hostVehicles={hostVehicles} vehicleId={selectedVehicle} />}
                         </Box>
                         <Flex pb={5} justify="space-evenly">
                             {(Object.keys(hostVehicles)).map((vehicleId, index) => (
