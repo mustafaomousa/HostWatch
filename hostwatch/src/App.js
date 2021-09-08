@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 import * as sessionActions from "./store/session";
-import LoginPage from "./routes/Login";
-import SignupPage from "./routes/Signup";
-import NavigationBar from "./components/NavigationComponent";
+import LoginPage from "./components/Login/LoginComponent";
+import SignupPage from "./components/Signup/SignupComponent";
+import NavigationBar from "./components/Navigation";
 
 import "./app.css"
 import Home from "./components/Home";

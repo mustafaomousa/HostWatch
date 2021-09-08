@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 
-const { Vehicle, User } = require("../../db/models");
+const { Vehicle, User, Trip, sequelize } = require("../../db/models");
 
 const router = express.Router();
 
@@ -13,9 +13,16 @@ router.get('/', asyncHandler(async (req, res, next) => {
 }));
 
 router.get('/:userId', asyncHandler(async (req, res, next) => {
-    const { userId } = req.params
+    const { userId } = req.params;
     const vehicles = await Vehicle.findAll({where: {userId: userId}});
     return res.json(vehicles);
+}));
+
+router.get('/earnings/:vehicleId', asyncHandler(async (req, res, next) => {
+    const { vehicleId } = req.params;
+    const vehicleTrips = await Trip.findAll({where: {vehicleId: vehicleId}, attributes: ['vehicleId', 'earnings', 'reinbursements']});
+
+    return res.json(vehicleTrips)
 }))
 
 router.post("/", asyncHandler(async (req, res, next) => {

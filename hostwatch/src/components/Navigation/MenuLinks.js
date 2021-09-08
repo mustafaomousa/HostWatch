@@ -2,9 +2,8 @@ import { Box,  Button,  Link, Stack,  Text, useDisclosure } from "@chakra-ui/rea
 import { useDispatch, useSelector } from "react-redux";
 
 import * as sessionActions from "../../store/session";
-import LoginComponent from "../LoginComponents/LoginComponent";
-import LoginUtils from "../LoginComponents/LoginUtils";
-import SignupComponent from "../SignupComponents/SignupComponent";
+import LoginComponent from "../Login/LoginComponent";
+import SignupComponent from "../Signup/SignupComponent";
 
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
     return (

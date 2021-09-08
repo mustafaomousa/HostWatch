@@ -1,4 +1,4 @@
-import { useDisclosure } from "@chakra-ui/react";
+import { useDisclosure, Center, Heading } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -23,9 +23,17 @@ const TripsUtils = () => {
         })
     };
 
+    const GenerateTripsChart = ({hostTrips}) => (Object.keys(hostTrips).map((key, _idx) => (
+        <Center w="200px" h="200px" flexDir="column" backgroundColor="#222629" align="center" borderRadius="0.35em">
+            {/* <Heading size="sm" color="white" >{hostTrips[key].startDate} to {hostTrips[key].endDate}</Heading> */}
+            <br />
+            <Heading size="xs" color="white">  ${hostTrips[key].earnings} </Heading>
+        </Center>
+    )));
+
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    return { addATrip, hostTrips, sessionUser, isOpen, onOpen, onClose }
+    return { addATrip, hostTrips, sessionUser, isOpen, onOpen, onClose, GenerateTripsChart }
 };
 
 export default TripsUtils;

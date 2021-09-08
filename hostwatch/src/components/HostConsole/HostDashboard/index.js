@@ -10,6 +10,23 @@ import VehicleControl from "./VehicleControl";
 const HostDashboard = ({sessionUser, hostVehicles, todaysDate}) => {
     const [selectedVehicle, setSelectedVehicle] = useState(0);
 
+    const month = new Date().getMonth() + 1;
+
+    const monthObj = {
+        1 : "january",
+        2 : "february",
+        3 : "march",
+        4 : "april",
+        5 : "may",
+        6 : "june",
+        7 : "july",
+        8 : "august",
+        9 : "september",
+        10 : "october",
+        11 : "november",
+        12 : "december"
+    };
+
     return (
         <Flex pt={20} flexDir="column" align="center" pb={20}>
             <Flex w="100%" pb={10}>
@@ -63,7 +80,7 @@ const HostDashboard = ({sessionUser, hostVehicles, todaysDate}) => {
                     </Box>
                     <Box>
                         <Heading size="md" mt={10} pb={5}>
-                            earnings this month
+                            earnings for {monthObj[month]}
                         </Heading> 
                         <Box backgroundColor="lightgray" h={280}>
                             <CurrentMonthEarnings />
