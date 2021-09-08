@@ -1,10 +1,12 @@
 import { Box, Center, Container, Flex, Heading, SimpleGrid } from "@chakra-ui/react";
-import DeckGL from "@deck.gl/react";
-import { LineLayer } from '@deck.gl/layers';
+// import DeckGL from "@deck.gl/react";
+// import { LineLayer, PathLayer } from '@deck.gl/layers';
+// import { MapView } from "@deck.gl/core";
 import { StaticMap } from 'react-map-gl';
 
 import VehicleControlComponent from "./VehicleControlComponent";
 import { useEffect, useState } from "react";
+
 
 const Host = ({sessionUser, hostVehicles, todaysDate}) => {
     const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoibXVzdGFmYW0xIiwiYSI6ImNrdDNnOTQybzB4aDMzMXBrZDRrejZ0MXQifQ.4LciaKmkv9Sv1LNkAH_Lfw';
@@ -12,16 +14,18 @@ const Host = ({sessionUser, hostVehicles, todaysDate}) => {
     const [userLat, setUserLat] = useState(37.7853)
 
     const INITIAL_VIEW_STATE = {
-        longitude: -122.41669,
-        latitude: 37.7853,
-        zoom: 17,
+        longitude: userLong,
+        latitude: userLat,
+        zoom: 10,
         pitch: 30,
         bearing: 0
       };
 
+
     const layers = [
-        new LineLayer({id: 'line-layer'})
+        new PathLayer({id: 'line-layer' })
     ];
+ 
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(( position )=> {
@@ -54,14 +58,19 @@ const Host = ({sessionUser, hostVehicles, todaysDate}) => {
                 </Heading>
                 <Flex mt={10} h={580}>
                     <Box backgroundColor="lightgray" w="100%" position="relative">
-                        <DeckGL
+                        {/* <DeckGL
                             initialViewState={INITIAL_VIEW_STATE}
                             controller={true}
                             layers={layers}
+                            height="100%"
+                            width="100%"
                             
                         >
-                            <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} />
-                        </DeckGL>
+                            <MapView controller={true}>
+                                <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} />    
+                                
+                            </MapView>  
+                        </DeckGL> */}
                     </Box>
                 </Flex>
                 <Heading size="md" mt={10} pb={5}>
