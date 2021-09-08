@@ -23,6 +23,13 @@ const deleteVehicle = (vehicleId) => {
   };
 };
 
+const getVehicleEarnings = (vehicleId, vehicles) => {
+  return {
+    type: "SET_VEHICLE_EARNINGS",
+    payload: {vehicleId, vehicles}
+  };
+};
+
 export const getHostVehicles = (id) => async (dispatch) => {
     const response = await fetch(`/api/vehicle/${id}`);
 
@@ -30,6 +37,14 @@ export const getHostVehicles = (id) => async (dispatch) => {
     
     return response;
   };
+
+export const getSelectedVehicleEarnings = (vehicleId) => async (dispatch) => {
+  const response = await fetch(`/api/vehicle/earnings/${vehicleId}`);
+
+  if (response.ok) dispatch(getVehicleEarnings(vehicleId ,response.data));
+
+  return response;
+}
 
 export const addHostVehicle = (year, make, model, startingMileage, picturesUrl, userId) => async (dispatch) => {
   const response = await fetch('/api/vehicle', {
@@ -74,8 +89,10 @@ const vehicleReducer = (state = initialState, action) => {
       return newState;
     case "DELETE_VEHICLE":
       newState = {...state};
-      console.log(action.payload)
-      delete newState[parseInt(action.payload)]
+      delete newState[parseInt(action.payload)];
+      return newState;
+    case "SET_VEHICLE_EARNINGS":
+      newState = {...state , [`${action.payload.vehicleId}-earnings`]: action.payload.vehicles};
       return newState;
     default:
       return state;

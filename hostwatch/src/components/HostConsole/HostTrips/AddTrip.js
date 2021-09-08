@@ -1,10 +1,13 @@
 import { Button, Center, FormControl, FormErrorMessage, FormLabel,  Input, Select,  useToast } from "@chakra-ui/react"
 import { Field, Form, Formik } from "formik";
+import { useSelector } from "react-redux";
 import TripsUtils from "./TripsUtils";
 
 const AddTrip = ({onClose}) => {
     const { addATrip } = TripsUtils();
     const toast = useToast();
+
+    const hostVehicles = useSelector(state => state.vehicles);
 
     return (
         <Formik
@@ -64,14 +67,14 @@ const AddTrip = ({onClose}) => {
                             </FormControl>
                         )}
                     </Field>
-                    <Field name="vehicle">
+                    <Field name="vehicleId">
                         {({field, form}) => (
-                            <FormControl isInvalid={form.errors.vehicle && form.touched.vehicle}       >
-                                <FormLabel htmlFor="vehicle">vehicle</FormLabel>
-                                <Select {...field}>
-
+                            <FormControl isInvalid={form.errors.vehicleId && form.touched.vehicleId}       >
+                                <FormLabel htmlFor="vehicleId">vehicle</FormLabel>
+                                <Select {...field} id="vehicleId" placeholder="select a vehicle">
+                                    {Object.keys(hostVehicles).map((vehicleId, idx) => <option value={vehicleId}>{hostVehicles[vehicleId].year} {hostVehicles[vehicleId].make} {hostVehicles[vehicleId].model}</option>)}
                                 </Select>
-                                <FormErrorMessage>{form.errors.vehicle}</FormErrorMessage>           
+                                <FormErrorMessage>{form.errors.vehicleId}</FormErrorMessage>           
                             </FormControl>
                         )}
                     </Field>

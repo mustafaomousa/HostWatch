@@ -15,7 +15,7 @@ const TripsUtils = () => {
     }, [dispatch, sessionUser.id])
 
     const addATrip = (values, actions) => {
-        return dispatch(tripActions.addHostTrip(values.startDate, values.endDate, values.earnings, values.reinbursements, values.milesDriven, 1,  sessionUser.id, "www.google.com"))
+        return dispatch(tripActions.addHostTrip(values.startDate, values.endDate, values.earnings, values.reinbursements, values.milesDriven, values.vehicleId,  sessionUser.id, "www.google.com"))
         .catch((res) => {
             if (res.data && res.data.errors) {
                 // setErrors(res.data.errors);
