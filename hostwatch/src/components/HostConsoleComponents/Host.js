@@ -9,30 +9,29 @@ import { useEffect, useState } from "react";
 
 
 const Host = ({sessionUser, hostVehicles, todaysDate}) => {
-    const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoibXVzdGFmYW0xIiwiYSI6ImNrdDNnOTQybzB4aDMzMXBrZDRrejZ0MXQifQ.4LciaKmkv9Sv1LNkAH_Lfw';
-    const [userLong, setUserLong] = useState(-122.41669);
-    const [userLat, setUserLat] = useState(37.7853)
+    // const [userLong, setUserLong] = useState(-122.41669);
+    // const [userLat, setUserLat] = useState(37.7853)
 
-    const INITIAL_VIEW_STATE = {
-        longitude: userLong,
-        latitude: userLat,
-        zoom: 10,
-        pitch: 30,
-        bearing: 0
-      };
+    // const INITIAL_VIEW_STATE = {
+    //     longitude: userLong,
+    //     latitude: userLat,
+    //     zoom: 10,
+    //     pitch: 30,
+    //     bearing: 0
+    //   };
 
 
-    const layers = [
-        new PathLayer({id: 'line-layer' })
-    ];
+    // const layers = [
+    //     new PathLayer({id: 'line-layer' })
+    // ];
  
 
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition(( position )=> {
-            setUserLong(position.coords.longitude);
-            setUserLat(position.coords.latitude);
-        })
-    },[])
+    // useEffect(() => {
+    //     navigator.geolocation.getCurrentPosition(( position )=> {
+    //         setUserLong(position.coords.longitude);
+    //         setUserLat(position.coords.latitude);
+    //     })
+    // },[])
 
     return (
         <Flex pt={20} flexDir="column" align="center">
