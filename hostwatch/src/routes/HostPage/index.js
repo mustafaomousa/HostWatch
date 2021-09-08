@@ -11,9 +11,10 @@ import HostUtils from "../../components/HostConsoleComponents/HostUtils";
 import HostEarningsPage from "../HostEarningsPage";
 import HostChartsPage from "../HostChartsPage";
 import { HamburgerIcon, Search2Icon, } from "@chakra-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { logout } from "../../store/session";
 import { useDispatch } from "react-redux";
+import * as vehicleActions from "../../store/vehicle";
 
 const HostConsoleComponent = () => {
     const dispatch = useDispatch();

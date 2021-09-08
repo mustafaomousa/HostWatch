@@ -1,37 +1,10 @@
-import { Box, Center, Container, Flex, Heading, SimpleGrid } from "@chakra-ui/react";
-// import DeckGL from "@deck.gl/react";
-// import { LineLayer, PathLayer } from '@deck.gl/layers';
-// import { MapView } from "@deck.gl/core";
-import { StaticMap } from 'react-map-gl';
-
-import VehicleControlComponent from "./VehicleControlComponent";
-import { useEffect, useState } from "react";
+import { Box, Flex, Heading, SimpleGrid, Button } from "@chakra-ui/react";
+import { useState } from "react";
+import VehicleControlComponent from "../DashboardComponents/VehicleControlComponent/VehicleControlComponent";
 
 
 const Host = ({sessionUser, hostVehicles, todaysDate}) => {
-    // const [userLong, setUserLong] = useState(-122.41669);
-    // const [userLat, setUserLat] = useState(37.7853)
-
-    // const INITIAL_VIEW_STATE = {
-    //     longitude: userLong,
-    //     latitude: userLat,
-    //     zoom: 10,
-    //     pitch: 30,
-    //     bearing: 0
-    //   };
-
-
-    // const layers = [
-    //     new PathLayer({id: 'line-layer' })
-    // ];
- 
-
-    // useEffect(() => {
-    //     navigator.geolocation.getCurrentPosition(( position )=> {
-    //         setUserLong(position.coords.longitude);
-    //         setUserLat(position.coords.latitude);
-    //     })
-    // },[])
+    const [selectedVehicle, setSelectedVehicle] = useState(0);
 
     return (
         <Flex pt={20} flexDir="column" align="center">
@@ -56,30 +29,29 @@ const Host = ({sessionUser, hostVehicles, todaysDate}) => {
                     locate your fleet
                 </Heading>
                 <Flex mt={10} h={580}>
-                    <Box backgroundColor="lightgray" w="100%" position="relative">
-                        {/* <DeckGL
-                            initialViewState={INITIAL_VIEW_STATE}
-                            controller={true}
-                            layers={layers}
-                            height="100%"
-                            width="100%"
-                            
-                        >
-                            <MapView controller={true}>
-                                <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} />    
-                                
-                            </MapView>  
-                        </DeckGL> */}
+                    <Box backgroundColor="lightgray" w="100%" h="100%" align="center">
+                        <Heading>
+                            map coming soon.
+                        </Heading>
                     </Box>
                 </Flex>
                 <Heading size="md" mt={10} pb={5}>
                             control your fleet
                 </Heading>
                 <SimpleGrid columns={2} h={280} spacing={10} >
-                    <Flex flexDir="column" justify="center" backgroundColor="lightgray" overflow="scroll">
-                        <VehicleControlComponent hostVehicles={hostVehicles} />
+                    <Flex flexDir="column" justify="space-between" backgroundColor="lightgray">
+                        <Box p={5} height="100%">
+                            {selectedVehicle === 0 && <Heading align="center"> please select a vehicle. </Heading>}
+                            {selectedVehicle !== 0 && <VehicleControlComponent hostVehicles={hostVehicles} vehicleId={selectedVehicle} />}
+                        </Box>
+                        <Flex pb={5} justify="space-evenly">
+                            {(Object.keys(hostVehicles)).map((vehicleId, index) => (
+                                <Button onClick={() => setSelectedVehicle(vehicleId)} background="none" key={vehicleId}>{index + 1}</Button>
+                            ))}    
+                        </Flex>
                     </Flex>
                     <Box backgroundColor="lightgray">
+                        
                     </Box>      
                 </SimpleGrid>
             </Flex>    
