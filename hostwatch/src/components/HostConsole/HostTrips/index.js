@@ -1,12 +1,12 @@
 import { Box, Center, Flex, Heading, LinkBox, LinkOverlay } from "@chakra-ui/react"
 
-import TripChart from "../../components/TripsComponents/TripChart";
-import TripsUtils from "../../components/TripsComponents/TripsUtils";
-import AddTripDrawer from "../../components/TripsComponents/AddTripDrawer";
+import TripChart from "./TripChart";
+import TripsUtils from "./TripsUtils";
+import AddTripDrawer from "./AddTripDrawer";
 
 import "./index.css";
 
-const TripsComponent = () => {
+const HostTrips = () => {
     const { isOpen, onOpen, onClose } = TripsUtils();
 
     return (
@@ -23,4 +23,4 @@ const TripsComponent = () => {
     )
 };
 
-export default TripsComponent;
+export default HostTrips;

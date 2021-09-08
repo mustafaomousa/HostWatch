@@ -1,9 +1,10 @@
 import { Box, Flex, Heading, SimpleGrid, Button } from "@chakra-ui/react";
 import { useState } from "react";
-import VehicleControl from "../DashboardComponents/VehicleControlComponent";
+
+import VehicleControl from "./VehicleControl";
 
 
-const Host = ({sessionUser, hostVehicles, todaysDate}) => {
+const HostDashboard = ({sessionUser, hostVehicles, todaysDate}) => {
     const [selectedVehicle, setSelectedVehicle] = useState(0);
 
     return (
@@ -60,4 +61,4 @@ const Host = ({sessionUser, hostVehicles, todaysDate}) => {
     )
 };
 
-export default Host;
+export default HostDashboard;

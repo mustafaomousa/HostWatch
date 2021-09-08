@@ -1,7 +1,7 @@
 import { Box, Center, Heading, Td, Tr, useDisclosure } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 
-import * as vehicleActions from "../../store/vehicle";
+import * as vehicleActions from "../../../store/vehicle";
 
 const VehiclesUtils = () => {
     const dispatch = useDispatch();

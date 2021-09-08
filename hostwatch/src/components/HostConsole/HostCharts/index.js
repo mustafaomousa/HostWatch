@@ -1,8 +1,8 @@
 import { Box, Flex, Heading } from "@chakra-ui/react";
 
-import LoggedMilesChart from "../../components/HostChartsComponents/LoggedMilesChart";
+import LoggedMilesChart from "./LoggedMilesChart";
 
-const HostEarningsPage = () => {
+const HostCharts = () => {
     return (
         <Box pt={20}>
             <Flex>
@@ -28,4 +28,4 @@ const HostEarningsPage = () => {
     )
 };
 
-export default HostEarningsPage;
+export default HostCharts;

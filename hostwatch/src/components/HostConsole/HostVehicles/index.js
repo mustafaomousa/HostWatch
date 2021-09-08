@@ -1,12 +1,12 @@
-import { Box, Center, Heading, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { Box, Center, Heading } from "@chakra-ui/react";
 import { Redirect } from "react-router-dom";
 
-import AddVehicleDrawer from "../../components/VehiclesComponents/AddVehicleDrawer";
-import VehicleChart from "../../components/VehiclesComponents/VehicleChart"
-import VehiclesUtils from "../../components/VehiclesComponents/VehiclesUtils";
+import AddVehicleDrawer from "./AddVehicleDrawer";
+import VehicleChart from "./VehicleChart"
+import VehiclesUtils from "./VehiclesUtils";
 
 
-const VehiclesPage = ({ sessionUser, hostVehicles }) => {
+const HostVehicles = ({ sessionUser, hostVehicles }) => {
 
     const { onOpen, onClose, isOpen } = VehiclesUtils();
 
@@ -27,4 +27,4 @@ const VehiclesPage = ({ sessionUser, hostVehicles }) => {
 
 };
 
-export default VehiclesPage;
+export default HostVehicles;

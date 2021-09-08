@@ -2,21 +2,21 @@ import { Box, Button, Center, Flex, Heading, Input, VStack } from "@chakra-ui/re
 import { NavLink, Redirect, Route } from "react-router-dom";
 import { isBrowser, isMobile } from "react-device-detect";
 
-import TripsComponent from "../../routes/HostTripsPage";
-import VehiclesPage from "../../routes/HostVehiclesPage";
-import Host from "../../components/HostConsoleComponents/Host";
-import SideNavigation from "../../components/HostConsoleComponents/SideNavigation";
-import "./index.css";
-import HostUtils from "../../components/HostConsoleComponents/HostUtils";
-import HostEarningsPage from "../HostEarningsPage";
-import HostChartsPage from "../HostChartsPage";
+import SideNavigation from "./SideNavigation";
+import HostUtils from "../../components/HostConsole/HostDashboard/HostUtils";
 import { HamburgerIcon, Search2Icon, } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { logout } from "../../store/session";
 import { useDispatch } from "react-redux";
-import * as vehicleActions from "../../store/vehicle";
+import HostCharts from "./HostCharts";
+import HostEarnings from "./HostEarnings";
 
-const HostConsoleComponent = () => {
+import "./index.css";
+import HostVehicles from "./HostVehicles";
+import HostDashboard from "./HostDashboard";
+import HostTrips from "./HostTrips";
+
+const HostConsole = () => {
     const dispatch = useDispatch();
 
     const { sessionUser, hostVehicles, todaysDate } = HostUtils();
@@ -59,19 +59,19 @@ const HostConsoleComponent = () => {
                 </Flex>
                 <Box>
                     <Route exact path="/host">
-                        <Host sessionUser={sessionUser} hostVehicles={hostVehicles} todaysDate={todaysDate} />
+                        <HostDashboard sessionUser={sessionUser} hostVehicles={hostVehicles} todaysDate={todaysDate} />
                     </Route>
                     <Route exact path="/host/vehicles">
-                        <VehiclesPage hostVehicles={hostVehicles} sessionUser={sessionUser}/>
+                        <HostVehicles hostVehicles={hostVehicles} sessionUser={sessionUser}/>
                     </Route>
                     <Route exact path="/host/trips">
-                        <TripsComponent />
+                        <HostTrips />
                     </Route>
                     <Route exact path="/host/earnings">
-                        <HostEarningsPage />
+                        <HostEarnings />
                     </Route>
                     <Route exact path="/host/charts">
-                        <HostChartsPage />
+                        <HostCharts />
                     </Route>    
                 </Box>
             </Box>
@@ -79,4 +79,4 @@ const HostConsoleComponent = () => {
     )
 };
 
-export default HostConsoleComponent;
+export default HostConsole;

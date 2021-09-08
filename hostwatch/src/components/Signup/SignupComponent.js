@@ -1,6 +1,5 @@
 import { Button, Center, FormControl, FormErrorMessage, FormLabel, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
-// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import SignUpUtils from "./SignupUtils";

@@ -2,7 +2,7 @@ import { useDisclosure } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import * as tripActions from "../../store/trip";
+import * as tripActions from "../../../store/trip";
 
 const TripsUtils = () => {
     const dispatch = useDispatch();

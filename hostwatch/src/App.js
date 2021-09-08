@@ -8,8 +8,8 @@ import SignupPage from "./routes/Signup";
 import NavigationBar from "./components/NavigationComponent";
 
 import "./app.css"
-import HostConsoleComponent from "./routes/HostPage";
 import Home from "./components/Home";
+import HostConsole from "./components/HostConsole";
 
 
 
@@ -40,7 +40,7 @@ function App() {
             <SignupPage />
           </Route>
           <Route path="/host">
-            <HostConsoleComponent />
+            <HostConsole />
           </Route>  
       </Switch> 
     </>

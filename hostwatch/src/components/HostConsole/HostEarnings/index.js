@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react";
 
-const HostEarningsPage = () => {
+const HostEarnings = () => {
     return (
         <Box pt={20}>
             <Heading color="black">
@@ -10,5 +10,5 @@ const HostEarningsPage = () => {
     )
 };
 
-export default HostEarningsPage;
+export default HostEarnings;
 
