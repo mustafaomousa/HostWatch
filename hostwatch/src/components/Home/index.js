@@ -1,4 +1,5 @@
 import { Box, Center, Heading, Link, SimpleGrid, Wrap, WrapItem } from "@chakra-ui/react";
+import { Alert, AlertIcon } from "@chakra-ui/alert";
 import { isDesktop, isMobile } from "react-device-detect";
 
 import "./index.css";
@@ -45,36 +46,10 @@ const Home = ({sessionUser}) => {
     )
 
     if (isMobile) return (
-        <Box>
-            <Center align="center" height="300px">
-                <Heading fontSize="25px" p={5} align="center" color="gray.300">
-                    car share management for your business.
-                </Heading>
-                {!sessionUser && (
-                    <Heading color="white" size="sm">
-                        join today for <Link href="/signup" color="blue.200">free</Link>.
-                    </Heading>
-                )}
-            </Center>
-            <Center >
-                <SimpleGrid columns={1} spacing="35px">
-                    <Box backgroundColor="#F8E9A1" height={300} width={280} borderRadius="0.85em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
-                        manage your fleet
-                    </Box>
-                    <Box backgroundColor="#F8E9A1" height={300} width={280} borderRadius="0.85em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
-
-                    </Box>
-                    <Box backgroundColor="#F8E9A1" height={300} width={280} borderRadius="0.85em" style={{boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}}>
-
-                    </Box> 
-                </SimpleGrid>
-            </Center>
-            <Center pt={20} pb={20}>
-                <Heading color="whiteAlpha.100">
-                    all rights reserved
-                </Heading>
-            </Center>
-        </Box>
+            <Alert h="100%" align="center" backgroundColor="#24305E" color="white" pb={20}>
+                <AlertIcon/>
+            HostWatch is not yet suitable on mobile devices
+            </Alert>
     )
 };
 
