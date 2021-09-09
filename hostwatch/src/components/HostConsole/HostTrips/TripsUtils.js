@@ -3,15 +3,18 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import * as tripActions from "../../../store/trip";
+import { getHostVehicles } from "../../../store/vehicle";
 
 const TripsUtils = () => {
     const dispatch = useDispatch();
 
     const sessionUser = useSelector(state => state.session.user);
     const hostTrips = useSelector(state => state.trips);
+    const hostVehicles = useSelector(state => state.vehicles);
 
     useEffect(() => {
         dispatch(tripActions.getHostTrips(sessionUser.id))
+        dispatch(getHostVehicles(sessionUser.id))
     }, [dispatch, sessionUser.id])
 
     const addATrip = (values, actions) => {
@@ -33,7 +36,7 @@ const TripsUtils = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    return { addATrip, hostTrips, sessionUser, isOpen, onOpen, onClose, GenerateTripsChart }
+    return { addATrip, hostTrips, sessionUser, isOpen, onOpen, onClose, hostVehicles }
 };
 
 export default TripsUtils;
