@@ -69,6 +69,7 @@ const LoginComponent = () => {
                                             <Button 
                                                 type="submit"
                                                 isLoading={props.isSubmitting}
+                                                cursor="pointer"
                                             >
                                                 submit
                                             </Button>    
