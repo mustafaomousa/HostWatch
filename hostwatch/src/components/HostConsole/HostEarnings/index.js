@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Select, Button, Table, TableCaption, Thead, Tr, Td, Tbody, Tfoot, Th} from "@chakra-ui/react";
+import { Box, Flex, Heading, Select, Table, TableCaption, Thead, Tr, Td, Tbody, Th} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -17,7 +17,7 @@ const HostEarnings = () => {
 
     useEffect(() => {
         dispatch(vehicleActions.getSelectedVehicleEarnings(selectedVehicle));
-    },[selectedVehicle])
+    },[selectedVehicle, dispatch])
 
     return (
         <Box pt={20}>
@@ -53,7 +53,6 @@ const HostEarnings = () => {
                                         <Td>$ {earning.earnings + earning.reinbursements}</Td>
                                     </Tr>
                                 )
-                                console.log(earning)
                             })}
                         </Tbody>
                     </Table>}

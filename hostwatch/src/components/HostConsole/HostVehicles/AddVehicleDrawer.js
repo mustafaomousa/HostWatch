@@ -17,7 +17,7 @@ const AddVehicleDrawer = ({ isOpen, onOpen, onClose }) => {
                     <DrawerHeader>
                         add a vehicle.
                     </DrawerHeader>
-                    <DrawerBody>
+                    <DrawerBody pt={20}>
                         <Stack spacing="24px">
                             <AddVehicleComponent onClose={onClose}/>
                         </Stack>

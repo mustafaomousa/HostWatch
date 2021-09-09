@@ -18,7 +18,7 @@ const HostUtils = () => {
         } else {
             dispatch(vehicleActions.getHostVehicles(sessionUser.id))
         }
-    },[dispatch])
+    },[dispatch, sessionUser])
 
     return {dispatch, sessionUser, hostVehicles, todaysDate };
 };

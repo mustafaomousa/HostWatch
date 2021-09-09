@@ -38,7 +38,7 @@ const HostTrips = () => {
                         {(hostTrips) && Object.keys(hostTrips).map((tripId, idx) => {
                             let vehicle = hostVehicles[hostTrips[tripId].vehicleId];
                             return (
-                                <Tr>
+                                <Tr key={tripId}>
                                     <Td pr={0}><Button><EditIcon/> edit </Button></Td>
                                     <Td>{vehicle && vehicle.make} {vehicle && vehicle.model}</Td>
                                     <Td>{hostTrips[tripId].startDate.slice(5).replace("-","/")} to {hostTrips[tripId].endDate.slice(5).replace("-","/")}</Td>

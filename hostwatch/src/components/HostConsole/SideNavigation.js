@@ -1,6 +1,6 @@
 import { Avatar, Box, Flex, Heading, VStack } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { Link, NavLink, Redirect } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const SideNavigation = ({sideClosed, setSideClosed}) => {
     const sessionUser = useSelector(state => state.session.user);
@@ -17,7 +17,7 @@ const SideNavigation = ({sideClosed, setSideClosed}) => {
                         </Flex>
                     </Flex>
                     <VStack style={{width: "100%", paddingTop:"3rem", paddingBottom: "3rem", fontSize:"20px"}} spacing="30px">
-                        <Link activeClassName="active" style={{width: "100%", textAlign: "center", color: "white", transition: "cubic-bezier(0.77, 0, 0.175, 1) .5s"}} to="/host" height="50px">
+                        <Link style={{width: "100%", textAlign: "center", color: "white", transition: "cubic-bezier(0.77, 0, 0.175, 1) .5s"}} to="/host" height="50px">
                             dashboard.
                         </Link>
                         <NavLink activeClassName="active" style={{width: "100%", textAlign: "center", color: "white", transition: "cubic-bezier(0.77, 0, 0.175, 1) .5s"}} to="/host/vehicles" height="50px">

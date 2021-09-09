@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Heading, Input, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Input} from "@chakra-ui/react";
 import { NavLink, Redirect, Route } from "react-router-dom";
 import { isBrowser, isMobile } from "react-device-detect";
 
@@ -52,7 +52,7 @@ const HostConsole = () => {
                         <Input backgroundColor="lightgray" placeholder="quick actions" _placeholder={{color:"darkslategray", textAlign:"center"}} />
                     </Flex>
                     <Flex>
-                        <Button backgroundColor="lightgray" onClick={()=>dispatch(logout())}>
+                        <Button colorScheme="red" onClick={()=>dispatch(logout())}>
                             logout
                         </Button>
                     </Flex>

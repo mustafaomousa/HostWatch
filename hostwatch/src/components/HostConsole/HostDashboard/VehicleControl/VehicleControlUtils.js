@@ -1,7 +1,4 @@
 import { Button } from "@chakra-ui/button";
-import Icon from "@chakra-ui/icon";
-import { LockIcon, Search2Icon, UnlockIcon } from "@chakra-ui/icons";
-import { Box, Flex, Heading } from "@chakra-ui/layout";
 import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay } from "@chakra-ui/modal";
 import React, { useState } from "react";
 

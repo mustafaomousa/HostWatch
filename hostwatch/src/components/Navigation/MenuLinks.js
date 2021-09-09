@@ -1,4 +1,4 @@
-import { Box,  Button,  Link, Stack,  Text, useDisclosure } from "@chakra-ui/react";
+import { Box, Link, Stack,  Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 
 import * as sessionActions from "../../store/session";
@@ -17,13 +17,6 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 
 const MenuLinks = ({navIsOpen}) => {
     const dispatch = useDispatch();
-
-    const { isOpen, onOpen, onClose } = useDisclosure();
-
-    const openLoginModal = (e) => {
-        e.preventDefault();
-        return () => isOpen
-    };
 
     const sessionUser = useSelector(state => state.session.user);
 

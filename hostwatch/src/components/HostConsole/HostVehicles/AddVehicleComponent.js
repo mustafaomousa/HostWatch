@@ -58,13 +58,13 @@ const AddVehicleComponent = ({onClose}) => {
                             )}
                         </Field>
                         <Field name="picturesUrl">
-                            {({field, form}) => (
+                            {/* {({field, form}) => (
                                 <FormControl isInvalid={form.errors.picturesUrl && form.touched.picturesUrl}>
                                     <FormLabel htmlFor="picturesUrl">pictures</FormLabel>
                                     <Input {...field} type="file" id="picturesUrl"/>
                                     <FormErrorMessage>{form.errors.picturesUrl}</FormErrorMessage>           
                                 </FormControl>
-                            )}
+                            )} */}
                         </Field>
                         <Center>
                             <Button 

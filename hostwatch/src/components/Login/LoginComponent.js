@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import {  FormControl, FormLabel, FormErrorMessage, Button, Input,  List, ListItem, Center, Modal, useDisclosure, ModalOverlay, ModalContent, ModalBody, ModalHeader, ModalFooter } from "@chakra-ui/react";
+import {  FormControl, FormLabel, FormErrorMessage, Button, Input,  List, ListItem, Center, Modal, ModalOverlay, ModalContent, ModalBody, ModalHeader, ModalFooter } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
@@ -86,7 +86,7 @@ const LoginComponent = () => {
                         </Center>
                     </ModalBody>
                     <ModalFooter>
-                        <Button onClick={loginDemouser}>Demo</Button>
+                        <Button onClick={loginDemouser} mr={5}>Demo</Button>
                         <Button onClick={onClose}>Close</Button>                           
                     </ModalFooter>     
                 </ModalContent>

@@ -1,4 +1,4 @@
-import { Box, Center, Heading, Link, SimpleGrid, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Center, Heading, Link, Wrap, WrapItem } from "@chakra-ui/react";
 import { Alert, AlertIcon } from "@chakra-ui/alert";
 import { isDesktop, isMobile } from "react-device-detect";
 
