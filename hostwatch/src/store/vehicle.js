@@ -33,7 +33,7 @@ const getVehicleEarnings = (vehicleId, vehicles) => {
 const updateVehicle = (vehicle) => {
   return {
     type: "UPDATE_VEHICLE",
-    payloaod: { vehicle },
+    payload: { vehicle },
   };
 };
 
@@ -86,6 +86,8 @@ export const updateHostVehicle =
         picturesUrl,
       }),
     });
+
+    if (response.ok) dispatch(updateVehicle(response.data));
   };
 
 export const deleteHostVehicle = (vehicleId) => async (dispatch) => {
@@ -113,9 +115,9 @@ const vehicleReducer = (state = initialState, action) => {
       newState[vehicleId] = action.payload.vehicle;
       return newState;
     case "UPDATE_VEHICLE":
-      let vehicleId = action.payload.vehicle.id;
+      let vehicleIdToUpdate = action.payload.vehicle.id;
       newState = { ...state };
-      newState[vehicleId] = action.payload.vehicle;
+      newState[vehicleIdToUpdate] = action.payload.vehicle;
       return newState;
     case "DELETE_VEHICLE":
       newState = { ...state };

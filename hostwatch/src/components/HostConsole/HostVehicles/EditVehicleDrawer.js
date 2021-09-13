@@ -36,7 +36,7 @@ const EditVehicleDrawer = ({ isOpen, onClose, vehicle }) => {
               </Heading>
             </Stack>
             <Flex justifyContent="center" w="100%" pt={20}>
-              <EditVehicleComponent vehicle={vehicle} />
+              <EditVehicleComponent vehicle={vehicle} onClose={onClose} />
               {/* <Button mr={5} disabled>
                 update
               </Button>

@@ -5,10 +5,15 @@ import {
   Input,
   Button,
   FormErrorMessage,
+  useToast,
 } from "@chakra-ui/react";
 import { Formik, Form, Field } from "formik";
+import { useDispatch } from "react-redux";
+import { updateHostVehicle } from "../../../store/vehicle";
 
-const EditVehicleComponent = ({ vehicle }) => {
+const EditVehicleComponent = ({ vehicle, onClose }) => {
+  const dispatch = useDispatch();
+  const toast = useToast();
   const initialValues = {
     year: vehicle.year,
     make: vehicle.make,
@@ -20,8 +25,26 @@ const EditVehicleComponent = ({ vehicle }) => {
     <Box flex flexDir="column">
       <Formik
         initialValues={initialValues}
-        onSubmit={(values, actions) => {
-          console.log(values);
+        onSubmit={async (values, actions) => {
+          await dispatch(
+            updateHostVehicle(
+              vehicle.id,
+              values.year,
+              values.make,
+              values.model,
+              values.startingMileage,
+              values.picturesUrl
+            )
+          );
+          onClose();
+
+          return toast({
+            title: "vehicle updated.",
+            description: "vehicle has been updated in the fleet chart.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
         }}
       >
         {(props) => (
