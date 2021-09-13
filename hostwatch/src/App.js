@@ -7,26 +7,25 @@ import LoginPage from "./components/Login/LoginComponent";
 import SignupPage from "./components/Signup/SignupComponent";
 import NavigationBar from "./components/Navigation";
 
-import "./app.css"
+import "./app.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 import Home from "./components/Home";
 import HostConsole from "./components/HostConsole";
-
-
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-  }, [dispatch])
+  }, [dispatch]);
 
-  return isLoaded && (
-    <>
-      
-      <Switch>
+  return (
+    isLoaded && (
+      <>
+        <Switch>
           <Route exact path="/">
             <NavigationBar />
             <Home sessionUser={sessionUser} />
@@ -41,9 +40,10 @@ function App() {
           </Route>
           <Route path="/host">
             <HostConsole />
-          </Route>  
-      </Switch> 
-    </>
+          </Route>
+        </Switch>
+      </>
+    )
   );
 }
 
