@@ -13,7 +13,7 @@
     "dev:frontend": "npm install --prefix hostwatch start",
     "sequelize": "npm run --prefix backend sequelize",
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
-    "start": "node -r dotenv/config src/index.js"
+    "start": "npm start --prefix backend"
   },
   "repository": {
     "type": "git",
